@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body{
+  font-family: 'Spartan', sans-serif;
+}
+
+/* Navigation */
+
+.nav-container{
+  background: #01161E;
+  height: 118px;
+}
+
+.wrapper{
+  max-width: 1120px;
+  margin: 0 auto;
+}
