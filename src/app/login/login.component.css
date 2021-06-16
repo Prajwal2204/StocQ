@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body{
+  font-family: 'Spartan', sans-serif;
+  margin: 0;
+}
+
+/* Navigation */
+
+.nav-container{
+  background: #01161E;
+  height: 90px;
+}
+
+.wrapper{
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px;
+}
+
+nav ul{
+  display: flex;
+}
+
+.nav-items li{
+  list-style: none;
+  margin-right: 50px;
+}
+
+.nav-items li:nth-last-of-type(1){
+  margin-right: 30px;
+}
+
+.nav-items li a{
+  color:#FFFFFF;
+  font-size: 18px;
+  line-height: 20px;
+  font-family: 'Spartan', sans-serif;
+  /* font-weight: 400; */
+  text-decoration: none;
+}
+
+.nav-items li a:hover{
+  color: #53DD6C;
+}
+
+.nav-items li a.active{
+  color: #53DD6C;
+}
+/* Header content */
+
+.header-container{
+  background: #01161E url('../../assets/login-pattern.svg');
+  background-repeat: none;
+  background-position: right;
+  background-size:cover;
+  height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h4{
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  text-align: center;
+  line-height: 112px;
+  color: #FBFBFF;
+  margin-bottom: 24px;
+}
+
+header p{
+  font-family: Spartan;
+font-style: normal;
+font-weight: 300;
+font-size: 24px;
+line-height: 27px;
+margin-top: 12px;
+color: #FFFFFF;
+}
+
+header p.align-right{
+  font-family: Spartan;
+  text-align: right;
+font-style: normal;
+font-weight: 300;
+font-size: 24px;
+line-height: 27px;
+margin-top: 12px;
+color: #FFFFFF;
+}
+
+header a{
+  color: #FFFFFF;
+  font-family: 'Spartan', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+
+  background: #DD5353;
+  border-radius: 25px;
+  padding: 24px 48px;
+}
+
+header a:hover{
+  color: #53DD6C;
+  background: #FFFFFF;
+}
+
+/* Hero Image */
+
+header .hero-image{
+  position: relative;
+  margin-right: 0;
+  margin-bottom: 12px;
+}
+
