@@ -106,7 +106,7 @@ margin-top: 12px;
 color: #FFFFFF;
 }
 
-header a{
+/* header a{
   color: #FFFFFF;
   font-family: 'Spartan', sans-serif;
   font-style: normal;
@@ -116,10 +116,36 @@ header a{
 
   background: #DD5353;
   border-radius: 25px;
-  padding: 24px 48px;
+  padding: 12px 24px;
 }
 
 header a:hover{
+  color: #53DD6C;
+  background: #FFFFFF;
+} */
+
+.form-group{
+  padding: 0% 20% 0% 20%;
+}
+
+/* .form-control{
+  align-items: center;
+} */
+
+.btn{
+  color: #FFFFFF;
+  font-family: 'Spartan', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+
+  background: #DD5353;
+  border-radius: 25px;
+  padding: 12px 24px;
+}
+
+.btn:hover{
   color: #53DD6C;
   background: #FFFFFF;
 }
@@ -131,4 +157,16 @@ header .hero-image{
   margin-right: 0;
   margin-bottom: 12px;
 }
+
+.card{
+  border-radius: 40px;
+  border: none;
+  background-color: #013C53;
+}
+
+.card-block{
+  text-align: center;
+}
+
+
 

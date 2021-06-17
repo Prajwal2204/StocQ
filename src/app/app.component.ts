@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'StocQ';
   constructor(private router: Router){}
   ngOnInit(){
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl('home');
   }
 }
