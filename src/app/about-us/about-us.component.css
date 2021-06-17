@@ -6,12 +6,16 @@
 body{
   font-family: 'Spartan', sans-serif;
   margin: 0;
+  background: #01161E url('../../assets/bg-about.svg');
+  background-repeat: none;
+  background-position: right;
+  background-size:cover;
+  min-height:100vh;
 }
 
 /* Navigation */
 
 .nav-container{
-  background: #01161E;
   height: 90px;
 }
 
@@ -35,6 +39,12 @@ nav ul{
   list-style: none;
   margin-right: 50px;
 }
+.nav-items li:hover{
+  border-bottom: 1px solid #53DD6C;
+}
+.nav-items li:hover a{
+  color: #53DD6C !important;
+}
 
 .nav-items li:nth-last-of-type(1){
   margin-right: 30px;
@@ -42,10 +52,10 @@ nav ul{
 
 .nav-items li a{
   color:#FFFFFF;
-  font-size: 18px;
+  font-size: 13px !important;
   line-height: 20px;
   font-family: 'Spartan', sans-serif;
-  /* font-weight: 400; */
+  font-weight: 200 !important;
   text-decoration: none;
 }
 
@@ -58,15 +68,6 @@ nav ul{
 }
 /* Header content */
 
-.header-container{
-  background: #01161E url('../../assets/bg-about.svg');
-  background-repeat: none;
-  background-position: right;
-  background-size:cover;
-  height: calc(100vh - 90px);
-  display: flex;
-  align-items: center;
-}
 
 header{
   display: flex;
@@ -74,60 +75,21 @@ header{
   justify-content: space-between;
 }
 
-header h1{
+h1{
   font-family: Spartan;
   font-style: normal;
-  font-weight: 800;
-  font-size: 100px;
+  font-weight: 700;
+  font-size: 7em;
   line-height: 112px;
   color: #FBFBFF;
-  margin-bottom: 24px;
+  margin-bottom: 5%;
 }
 
-header p{
-  font-family: Spartan;
-font-style: normal;
-font-weight: 300;
-font-size: 24px;
+p{
+font-weight: 100;
+font-size: 20px;
 line-height: 27px;
-margin-top: 12px;
+margin-top: 40px;
 color: #FFFFFF;
+line-height:35px;
 }
-
-header p.align-right{
-  font-family: Spartan;
-  text-align: right;
-font-style: normal;
-font-weight: 300;
-font-size: 24px;
-line-height: 27px;
-margin-top: 12px;
-color: #FFFFFF;
-}
-
-header a{
-  color: #FFFFFF;
-  font-family: 'Spartan', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  text-decoration: none;
-
-  background: #DD5353;
-  border-radius: 25px;
-  padding: 24px 48px;
-}
-
-header a:hover{
-  color: #53DD6C;
-  background: #FFFFFF;
-}
-
-/* Hero Image */
-
-header .hero-image{
-  position: relative;
-  margin-right: 0;
-  margin-bottom: 12px;
-}
-

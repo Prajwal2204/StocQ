@@ -7,7 +7,7 @@ body{
   font-family: 'Spartan', sans-serif;
   margin: 0;
 
-  height:100vh;
+  min-height:100vh;
 
   background-repeat: none;
   background-position: center center;
@@ -82,7 +82,7 @@ header{
 h1{
   font-family: Spartan;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 7em;
   line-height: 112px;
   color: #FBFBFF;
@@ -115,9 +115,9 @@ header a:hover{
   font-size: 18px;
   text-decoration: none;
 
-  background: #53DD6C;
-  border-radius: 25px;
-  padding: 12px 24px;
+  background: #DD5353;
+  border-radius: 20px;
+  padding: 15px 24px;
 }
 
 .dash-btn a{
@@ -129,9 +129,10 @@ header a:hover{
 }
 
 .dash-btn:hover{
-  color: #53DD6C;
+
   border: none;
-  background: #DD5353;
+  background: #53DD6C;
+  
 }
 
 /* Hero Image */

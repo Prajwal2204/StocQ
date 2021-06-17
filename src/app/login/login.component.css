@@ -6,12 +6,16 @@
 body{
   font-family: 'Spartan', sans-serif;
   margin: 0;
+  background: #01161E url('../../assets/login-pattern.svg');
+  background-repeat: none;
+  background-position: right;
+  background-size:cover;
+  min-height:100vh;
 }
-
+ 
 /* Navigation */
 
 .nav-container{
-  background: #01161E;
   height: 90px;
 }
 
@@ -35,6 +39,12 @@ nav ul{
   list-style: none;
   margin-right: 50px;
 }
+.nav-items li:hover{
+  border-bottom: 1px solid #53DD6C;
+}
+.nav-items li:hover a{
+  color: #53DD6C !important;
+}
 
 .nav-items li:nth-last-of-type(1){
   margin-right: 30px;
@@ -42,10 +52,10 @@ nav ul{
 
 .nav-items li a{
   color:#FFFFFF;
-  font-size: 18px;
+  font-size: 13px !important;
   line-height: 20px;
   font-family: 'Spartan', sans-serif;
-  /* font-weight: 400; */
+  font-weight: 200 !important;
   text-decoration: none;
 }
 
@@ -59,13 +69,9 @@ nav ul{
 /* Header content */
 
 .header-container{
-  background: #01161E url('../../assets/login-pattern.svg');
-  background-repeat: none;
-  background-position: right;
-  background-size:cover;
-  height: calc(100vh - 90px);
   display: flex;
-  align-items: center;
+  justify-content: center;
+  margin-top:10vh;
 }
 
 header{
@@ -74,7 +80,7 @@ header{
   justify-content: space-between;
 }
 
-header h4{
+h4{
   font-family: Spartan;
   font-style: normal;
   font-weight: 600;
@@ -106,31 +112,13 @@ margin-top: 12px;
 color: #FFFFFF;
 }
 
-/* header a{
-  color: #FFFFFF;
-  font-family: 'Spartan', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  text-decoration: none;
-
-  background: #DD5353;
-  border-radius: 25px;
-  padding: 12px 24px;
-}
-
-header a:hover{
-  color: #53DD6C;
-  background: #FFFFFF;
-} */
 
 .form-group{
-  padding: 0% 20% 0% 20%;
+  color:grey !important;
 }
-
-/* .form-control{
-  align-items: center;
-} */
+.label{
+  font-weight:100 !important;
+}
 
 .btn{
   color: #FFFFFF;
@@ -150,18 +138,12 @@ header a:hover{
   background: #FFFFFF;
 }
 
-/* Hero Image */
-
-header .hero-image{
-  position: relative;
-  margin-right: 0;
-  margin-bottom: 12px;
-}
 
 .card{
   border-radius: 40px;
   border: none;
   background-color: #013C53;
+  padding:20px;
 }
 
 .card-block{
