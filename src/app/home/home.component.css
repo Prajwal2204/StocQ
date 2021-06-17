@@ -6,12 +6,18 @@
 body{
   font-family: 'Spartan', sans-serif;
   margin: 0;
+
+  height:100vh;
+  
+  background-repeat: none;
+  background-position: center center;
+  background-size:cover;
+  background: radial-gradient(111.56% 230% at -1.56% 160%, #53DD6C 0.97%, #015E82 54.69%, #181818 96.35%);
 }
 
 /* Navigation */
 
 .nav-container{
-  background: #01161E;
   height: 90px;
 }
 
@@ -35,6 +41,13 @@ nav ul{
   list-style: none;
   margin-right: 50px;
 }
+.nav-items li:hover{
+  border-bottom: 1px solid #53DD6C;
+}
+.nav-items li:hover a{
+  color: #53DD6C !important;
+}
+
 
 .nav-items li:nth-last-of-type(1){
   margin-right: 30px;
@@ -42,26 +55,22 @@ nav ul{
 
 .nav-items li a{
   color:#FFFFFF;
-  font-size: 18px;
+  font-size: 13px !important;
   line-height: 20px;
   font-family: 'Spartan', sans-serif;
-  /* font-weight: 400; */
+  font-weight: 200 !important;
   text-decoration: none;
 }
 
-.nav-items li a:hover{
-  color: #53DD6C;
-}
 /* Header content */
 
 .header-container{
-  background: #01161E url('../../assets/bg-pattern.svg');
-  background-repeat: none;
-  background-position: right;
-  background-size:cover;
+  
   height: calc(100vh - 90px);
   display: flex;
   align-items: center;
+  justify-content: center;
+  color:white;
 }
 
 header{
@@ -70,11 +79,11 @@ header{
   justify-content: space-between;
 }
 
-header h1{
+h1{
   font-family: Spartan;
   font-style: normal;
-  font-weight: 800;
-  font-size: 100px;
+  font-weight: 700;
+  font-size: 7em;
   line-height: 112px;
   color: #FBFBFF;
   margin-bottom: 24px;
@@ -106,3 +115,27 @@ header .hero-image{
 }
 
 
+svg {
+  margin: auto;
+  animation-fill-mode: backwards;
+}
+
+#ema {
+  stroke-dasharray: 1000;
+  animation: dash 4s infinite ease-in-out;
+}
+
+@keyframes dash {
+  to {
+      stroke-dashoffset: 2000;
+  }
+}
+
+.my-btn{
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  background: #DD5353;
+  border-radius: 25px;
+}
