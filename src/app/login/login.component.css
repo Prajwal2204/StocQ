@@ -12,7 +12,7 @@ body{
   background-size:cover;
   min-height:100vh;
 }
- 
+
 /* Navigation */
 
 .nav-container{
@@ -134,16 +134,26 @@ color: #FFFFFF;
 }
 
 .btn:hover{
-  color: #53DD6C;
-  background: #FFFFFF;
+  border: none;
+  background: #53DD6C;
 }
 
 
 .card{
   border-radius: 40px;
   border: none;
+  width: 500px;
+  height: 400px;
   background-color: #013C53;
-  padding:20px;
+  padding: 50px;
+}
+
+form label{
+  color: #FBFBFF;
+}
+
+.login{
+  padding: 19px;
 }
 
 .card-block{
