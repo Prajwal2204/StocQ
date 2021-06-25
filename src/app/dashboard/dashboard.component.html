@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STOCQ - Home</title>
+</head>
+<body>
+  <div class="nav-container">
+    <div class="wrapper">
+      <nav>
+        <div class="d-flex">
+          <h3 routerLink = "/home" style="font-size:35px; font-weight:800;color:white !important;">
+            <img height="55px" src = "../../assets/logo.png"> STOC<span style="color:#53DD6C">Q</span>
+          </h3>
+        </div>
+
+        <ul class = "nav-items">
+          <li>
+            <a routerLink="/dashboard">DASHBOARD</a>
+          </li>
+          <li>
+            <a routerLink="/about-us">ABOUT US</a>
+          </li>
+          <li>
+            <a routerLink="/login">LOGIN</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="nav-container second-nav">
+    <div class="wrapper">
+      <nav>
+        <div class="d-flex">
+          <h3 class = "second-nav-text">
+            Hello (user)!
+          </h3>
+        </div>
+
+        <ul class = "second-nav-items">
+          <li>
+            <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#">WITHDRAW</a></div>
+          </li>
+          <li>
+            <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#">DEPOSIT</a></div>
+          </li>
+          <li>
+            <div class="d-flex">
+              <h3 class = "second-nav-text">
+                $(Balance)
+              </h3>
+            </div>
+          </li>
+        </ul>
+        <!-- <div class="d-flex">
+          <h3 class = "second-nav-text">
+            $(Balance)
+          </h3>
+        </div> -->
+      </nav>
+    </div>
+  </div>
+
+  <div class="container" >
+    <div class="row">
+      <div class="col-md-7">
+          <div class = "row">
+            <div class="card">
+              <div class="card-body">
+                Placeholder for plots
+              </div>
+            </div>
+          </div>
+          <div class = "row">
+            <div class="card">
+              <div class="card-body">
+                Placeholder for return rates
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class = "row">
+          <div class="card right-card top-right">
+            <div class="card-body">
+              <h3 class = "card-title">START A NEW BACKTEST</h3>
+              <div class="btn btn-primary dash-btn" style="margin-top: 25px; border: none;"><a routerLink="#">DEPOSIT</a></div>
+            </div>
+          </div>
+        </div>
+        <div class = "row">
+          <div class="card right-card bottom-right">
+            <div class="card-body">
+              Placeholder for statistics
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+</body>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</html>
