@@ -116,9 +116,6 @@ color: #FFFFFF;
 .form-group{
   color:grey !important;
 }
-.label{
-  font-weight:100 !important;
-}
 
 .btn{
   color: #FFFFFF;
@@ -150,6 +147,7 @@ color: #FFFFFF;
 
 form label{
   color: #FBFBFF;
+  font-weight: 100;
 }
 
 .login{
