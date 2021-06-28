@@ -95,22 +95,6 @@ def evaluate_portfolio_performance(agent, logger):
     return portfolio_return
 
 
-def plot_portfolio_transaction_history(stock_name, agent):
-	portfolio_return = agent.portfolio_values[-1] - agent.initial_portfolio_value
-	df = pd.read_csv('./data/{}.csv'.format(stock_name))
-	buy_prices = [df.iloc[t, 4] for t in agent.buy_dates]
-	sell_prices = [df.iloc[t, 4] for t in agent.sell_dates]
-	plt.figure(figsize=(15, 5), dpi=100)
-	plt.title('{} Total Return on {}: ${:.2f}'.format(agent.model_type, stock_name, portfolio_return))
-	plt.plot(df['Date'], df['Close'], color='black', label=stock_name)
-	plt.scatter(agent.buy_dates, buy_prices, c='green', alpha=0.5, label='buy')
-	plt.scatter(agent.sell_dates, sell_prices,c='red', alpha=0.5, label='sell')
-	plt.xticks(np.linspace(0, len(df), 10))
-	plt.ylabel('Price')
-	plt.legend()
-	plt.grid()
-	plt.show()
-
 
 def buy_and_hold_benchmark(stock_name, agent):
     df = pd.read_csv('./data/{}.csv'.format(stock_name))
@@ -122,66 +106,4 @@ def buy_and_hold_benchmark(stock_name, agent):
     return dates, buy_and_hold_portfolio_values, buy_and_hold_return
 
 
-def plot_portfolio_performance_comparison(stock_name, agent):
-	dates, buy_and_hold_portfolio_values, buy_and_hold_return = buy_and_hold_benchmark(stock_name, agent)
-	agent_return = agent.portfolio_values[-1] - agent.initial_portfolio_value
-	plt.figure(figsize=(15, 5), dpi=100)
-	plt.title('{} vs. Buy and Hold'.format(agent.model_type))
-	plt.plot(dates, agent.portfolio_values, color='green', label='{} Total Return: ${:.2f}'.format(agent.model_type, agent_return))
-	plt.plot(dates, buy_and_hold_portfolio_values, color='blue', label='{} Buy and Hold Total Return: ${:.2f}'.format(stock_name, buy_and_hold_return))
-	# compare with S&P 500 performance in 2018
-	if '^GSPC' not in stock_name:
-		dates, GSPC_buy_and_hold_portfolio_values, GSPC_buy_and_hold_return = buy_and_hold_benchmark('^GSPC_2018', agent)
-		plt.plot(dates, GSPC_buy_and_hold_portfolio_values, color='red', label='S&P 500 2018 Buy and Hold Total Return: ${:.2f}'.format(GSPC_buy_and_hold_return))
-	plt.xticks(np.linspace(0, len(dates), 10))
-	plt.ylabel('Portfolio Value ($)')
-	plt.legend()
-	plt.grid()
-	plt.show()
 
-
-def plot_all(stock_name, agent):
-    '''combined plots of plot_portfolio_transaction_history and plot_portfolio_performance_comparison'''
-    fig, ax = plt.subplots(2, 1, figsize=(16,8), dpi=100)
-
-    portfolio_return = agent.portfolio_values[-1] - agent.initial_portfolio_value
-    df = pd.read_csv('./data/{}.csv'.format(stock_name))
-    buy_prices = [df.iloc[t, 4] for t in agent.buy_dates]
-    sell_prices = [df.iloc[t, 4] for t in agent.sell_dates]
-    ax[0].set_title('{} Total Return on {}: ${:.2f}'.format(agent.model_type, stock_name, portfolio_return))
-    ax[0].plot(df['Date'], df['Close'], color='black', label=stock_name)
-    ax[0].scatter(agent.buy_dates, buy_prices, c='green', alpha=0.5, label='buy')
-    ax[0].scatter(agent.sell_dates, sell_prices,c='red', alpha=0.5, label='sell')
-    ax[0].set_ylabel('Price')
-    ax[0].set_xticks(np.linspace(0, len(df), 10))
-    ax[0].legend()
-    ax[0].grid()
-
-    dates, buy_and_hold_portfolio_values, buy_and_hold_return = buy_and_hold_benchmark(stock_name, agent)
-    agent_return = agent.portfolio_values[-1] - agent.initial_portfolio_value
-    ax[1].set_title('{} vs. Buy and Hold'.format(agent.model_type))
-    ax[1].plot(dates, agent.portfolio_values, color='green', label='{} Total Return: ${:.2f}'.format(agent.model_type, agent_return))
-    ax[1].plot(dates, buy_and_hold_portfolio_values, color='blue', label='{} Buy and Hold Total Return: ${:.2f}'.format(stock_name, buy_and_hold_return))
-    # compare with S&P 500 performance in 2018 if stock is not S&P 500
-    if '^GSPC' not in stock_name:
-    	dates, GSPC_buy_and_hold_portfolio_values, GSPC_buy_and_hold_return = buy_and_hold_benchmark('^GSPC_2018', agent)
-    	ax[1].plot(dates, GSPC_buy_and_hold_portfolio_values, color='red', label='S&P 500 2018 Buy and Hold Total Return: ${:.2f}'.format(GSPC_buy_and_hold_return))
-    ax[1].set_ylabel('Portfolio Value ($)')
-    ax[1].set_xticks(np.linspace(0, len(df), 10))
-    ax[1].legend()
-    ax[1].grid()
-
-    plt.subplots_adjust(hspace=0.5)
-    plt.show()
-
-
-def plot_portfolio_returns_across_episodes(model_name, returns_across_episodes):
-    len_episodes = len(returns_across_episodes)
-    plt.figure(figsize=(15, 5), dpi=100)
-    plt.title('Portfolio Returns')
-    plt.plot(returns_across_episodes, color='black')
-    plt.xlabel('Episode')
-    plt.ylabel('Return Value')
-    plt.grid()
-    plt.savefig('visualizations/{}_returns_ep{}.png'.format(model_name, len_episodes))
-    plt.show()
