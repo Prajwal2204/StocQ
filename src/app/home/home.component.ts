@@ -16,9 +16,10 @@ export class HomeComponent implements OnInit {
 
 
   dropdownMenu(input){
-    console.log(input);
+    // console.log(input);
     let x = input;
-    if (x.className === "nav-items") {
+
+    if (x.className === "nav-items" || x.className === "nav-items-dropdown") {
       x.className += " responsive";
     }
     else {

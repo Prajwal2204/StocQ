@@ -36,13 +36,13 @@
 
     <div class="row">
       <div class="col-md-6">
-        <div class="top-box alert alert-danger" *ngIf="alert != ''"> 
+        <div class="top-box alert alert-danger" *ngIf="alert != ''">
           {{alert}}
         </div>
         <div class="card">
           <h4 class="card-title">LOGIN</h4>
           <div class="card-block">
-            
+
             <form #loginForm="ngForm" (ngSubmit)="Login(loginForm.value)">
               <div class="form-group login">
                 <label for="exampleInputEmail1">Email address</label>
@@ -61,12 +61,12 @@
       </div>
 
       <div class="col-md-6">
-        
+
         <div class="card">
           <h4 class="card-title">REGISTER</h4>
           <div class="card-block">
             <form #RegisterForm="ngForm" (ngSubmit)="Register(RegisterForm.value)">
-              
+
               <div class="form-group">
                 <label for="exampleInputName1">Name</label>
                 <input ngModel required #name="ngModel" name="name" required type="text" class="form-control" id="exampleInputName2" aria-describedby="nameHelp" placeholder="Enter name">
