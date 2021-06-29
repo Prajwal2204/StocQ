@@ -21,7 +21,7 @@ export class AuthService {
 
     const headers = { 'Content-Type': 'application/json',};
     var url: string = this.server_url + this.login_url;
-    return this.http.post(url, data, {headers, responseType:'json', observe:'response'});
+    return this.http.post(url, data, {headers, responseType:'json', observe:'response', withCredentials:true});
   }
 
   authRegister(data: { name: string, email: string, password: string }) {
@@ -32,7 +32,7 @@ export class AuthService {
 
   authLogout() {
     var url: string = this.server_url + this.logout_url;
-    return this.http.get(url);
+    return this.http.get(url, {withCredentials:true});
   }
 
 

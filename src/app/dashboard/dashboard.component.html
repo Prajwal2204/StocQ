@@ -11,7 +11,7 @@
     <div class="wrapper">
       <nav>
         <div class="d-flex">
-          <h3 routerLink = "/home" style="font-size:35px; font-weight:800;color:white !important;">
+          <h3 routerLink = "" style="font-size:35px; font-weight:800;color:white !important;">
             <img height="55px" src = "../../assets/logo.png"> STOC<span style="color:#53DD6C">Q</span>
           </h3>
         </div>
@@ -32,11 +32,14 @@
   </div>
 
   <div class="nav-container second-nav">
+    <div class="top-box alert alert-danger" *ngIf="alert != ''"> 
+      {{alert}}
+    </div>
     <div class="wrapper">
       <nav>
         <div class="d-flex">
           <h3 class = "second-nav-text">
-            Hello (user)!
+            Hello {{username}}!
           </h3>
         </div>
 

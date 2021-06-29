@@ -12,7 +12,7 @@
     <div class="wrapper">
       <nav>
         <div class="d-flex">
-          <h3 routerLink = "/home" style="font-size:35px; font-weight:800;color:white !important;">
+          <h3 routerLink = "" style="font-size:35px; font-weight:800;color:white !important;">
             <img height="55px" src = "../../assets/logo.png"> STOC<span style="color:#53DD6C">Q</span>
           </h3>
         </div>
@@ -33,18 +33,18 @@
   </div>
 
   <div class="container header-container">
+
     <div class="row">
       <div class="col-md-6">
-        
+        <div class="top-box alert alert-danger" *ngIf="alert != ''"> 
+          {{alert}}
+        </div>
         <div class="card">
           <h4 class="card-title">LOGIN</h4>
           <div class="card-block">
             
             <form #loginForm="ngForm" (ngSubmit)="Login(loginForm.value)">
               <div class="form-group login">
-                <div class="alert alert-danger" *ngIf="login_alert != ''"> 
-                  {{login_alert}}
-                </div>
                 <label for="exampleInputEmail1">Email address</label>
                 <input ngModel required #email="ngModel" name="email" type="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 <small *ngIf="email.touched && !email.valid" class="form-text text-muted">Email Cannot Be Empty!</small>
@@ -68,9 +68,6 @@
             <form #RegisterForm="ngForm" (ngSubmit)="Register(RegisterForm.value)">
               
               <div class="form-group">
-                <div class="alert alert-danger" *ngIf="register_alert != ''"> 
-                  {{register_alert}}
-                </div>
                 <label for="exampleInputName1">Name</label>
                 <input ngModel required #name="ngModel" name="name" required type="text" class="form-control" id="exampleInputName2" aria-describedby="nameHelp" placeholder="Enter name">
                 <small *ngIf="name.touched && !name.valid" class="form-text text-muted">Name Cannot Be Empty!</small>
