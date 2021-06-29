@@ -5,7 +5,8 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieModule } from 'ngx-cookie';
-import { HomeComponent } from './home/home.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    CookieModule.forRoot()
+    CookieModule.forRoot(),
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
