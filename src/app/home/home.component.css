@@ -9,95 +9,11 @@
 body{
   font-family: 'Spartan', sans-serif;
   margin: 0;
-
-  min-height:100vh;
-
   background-repeat: none;
   background-position: center center;
   background-size:cover;
   background: radial-gradient(111.56% 230% at -1.56% 160%, #53DD6C 0.97%, #015E82 54.69%, #181818 96.35%);
 }
-
-
-/* Navigation */
-
-/* .nav-logo{
-  padding: 0 100px;
-  line-height: 80px;
-} */
-/*
-nav ul{
-  float: right;
-
-}
-
-nav li{
-  display: inline-block;
-  margin: 0 28px;
-  line-height: 50px;
-}
-
-nav a{
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 200;
-}
-
-nav a:active, nav a:hover{
-  color: #53DD6C !important;
-  text-decoration: none;
-  border-bottom: 1px solid #53DD6C;
-}
-
-nav #icon{
-  color: #FFFFFF;
-  font-size: 18px;
-  line-height: 50px;
-  float: right;
-  cursor: pointer;
-  display: none;
-}
-
-@media(max-width: 1048px){
-  nav ul{
-    margin-right: 20px;
-  }
-  nav a{
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 909px){
-  nav #icon{
-    display: block;
-  }
-  nav ul{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #015E82;
-    top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all .5s;
-  }
-  nav li{
-    display:block;
-    margin: 50px 0;
-    line-height: 30px;
-  }
-  nav a{
-    font-size: 12px;
-  }
-  nav a:active, nav a:hover{
-    color: #53DD6C !important;
-    text-decoration: none;
-    border-bottom: 1px solid #53DD6C;
-  }
-  nav ul.show{
-    left: 0;
-  }
-} */
 
 
 .nav-container{
@@ -170,7 +86,7 @@ h1{
   font-family: Spartan;
   font-style: normal;
   font-weight: 800;
-  font-size: 7em;
+  font-size: 9em;
   line-height: 112px;
   color: #FBFBFF;
   margin-bottom: 24px;
@@ -198,12 +114,12 @@ header a:hover{
   color: #FFFFFF;
   font-family: 'Spartan', sans-serif;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 18px;
   text-decoration: none;
-
+  border:0px;
   background: #DD5353;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 15px 24px;
 }
 
@@ -217,7 +133,6 @@ header a:hover{
 
 .dash-btn:hover{
 
-  border: none;
   background: #53DD6C;
 
 }
@@ -303,21 +218,21 @@ ul.nav-items li.dropdownIcon {
       top: 0;
       right: 0;
   }
-  /* ul.nav-items.responsive{
+  ul.nav-items.responsive{
       position: fixed;
       width: 100%;
       text-align: center;
       top: 80px;
-  } */
-  /* ul.nav-items.responsive li{
+  }
+  ul.nav-items.responsive li{
       display: block;
       float: none;
   }
   ul.nav-items.responsive li a{
       display: block;
       text-align: center;
-  } */
-  ul.nav-items-dropdown.responsive{
+  }
+  /* ul.nav-items-dropdown.responsive{
     position: fixed;
     width: 100%;
     text-align: center;
@@ -330,5 +245,5 @@ ul.nav-items li.dropdownIcon {
   ul.nav-items-dropdown.responsive li a{
       display: block;
       text-align: center;
-  }
+  } */
 }

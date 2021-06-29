@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>STOCQ - Home</title>
 </head>
+
 <body>
   <div class="nav-container">
     <div class="wrapper">
       <nav>
         <div class="d-flex">
-          <h3 routerLink = "" style="font-size:35px; font-weight:800;color:white !important;">
-            <img height="55px" src = "../../assets/logo.png"> STOC<span style="color:#53DD6C">Q</span>
+          <h3 routerLink="" style="font-size:35px; font-weight:800;color:white !important;">
+            <img height="55px" src="../../assets/logo.png"> STOC<span style="color:#53DD6C">Q</span>
           </h3>
         </div>
 
-        <ul class = "nav-items">
+        <ul class="nav-items">
           <li>
             <a routerLink="/dashboard">DASHBOARD</a>
           </li>
@@ -32,18 +34,19 @@
   </div>
 
   <div class="nav-container second-nav">
-    <div class="top-box alert alert-danger" *ngIf="alert != ''"> 
+    <div class="top-box alert alert-danger" *ngIf="alert != ''">
       {{alert}}
     </div>
     <div class="wrapper">
       <nav>
-        <div class="d-flex">
-          <h3 class = "second-nav-text">
+        <div class="container">
+
+          <h3 class="second-nav-text">
             Hello {{username}}!
           </h3>
         </div>
 
-        <ul class = "second-nav-items">
+        <ul class="second-nav-items">
           <li>
             <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#">WITHDRAW</a></div>
           </li>
@@ -52,56 +55,107 @@
           </li>
           <li>
             <div class="d-flex">
-              <h3 class = "second-nav-text">
+              <h3 class="second-nav-text">
                 $(Balance)
               </h3>
             </div>
           </li>
         </ul>
-        <!-- <div class="d-flex">
-          <h3 class = "second-nav-text">
-            $(Balance)
-          </h3>
-        </div> -->
       </nav>
     </div>
   </div>
 
-  <div class="container" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card d-flex">
+          <h3 class="second-nav-text text-right">
+            Hello {{username}}!
+          </h3>
+          <h3 class="second-nav-text" style="margin-top:auto;">
+            $50,000
+          </h3>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <h3 class="second-nav-text">
+            <canvas baseChart [datasets]="lineChartData"
+                  [chartType]="lineChartType">
+            </canvas>
+          </h3>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <h3 class="second-nav-text">
+            <canvas baseChart [datasets]="lineChartData"
+                  [chartType]="lineChartType">
+            </canvas>
+          </h3>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
     <div class="row">
       <div class="col-md-7">
-          <div class = "row">
-            <div class="card">
-              <div class="card-body">
-                <div style="width:100%;">
-                  <canvas id="myChart" width="700" height="250" #mychart></canvas>
-               </div>
+        <div class="card">
+          <div class="card-body">
+            <div style="width:100%;">
+              <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+                [plugins]="lineChartPlugins">
+              </canvas>
 
-              </div>
             </div>
-          </div>
-          <div class = "row">
-            <div class="card">
-              <div class="card-body">
-                Placeholder for return rates
-              </div>
-            </div>
-          </div>
-      </div>
 
-      <div class="col-md-5">
-        <div class = "row">
-          <div class="card right-card top-right">
-            <div class="card-body">
-              <h3 class = "card-title">START A NEW BACKTEST</h3>
-              <div class="btn btn-primary dash-btn" style="margin-top: 25px; border: none;"><a routerLink="#">DEPOSIT</a></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div style="width:100%;">
+              <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
+                [plugins]="lineChartPlugins">
+              </canvas>
+
             </div>
           </div>
         </div>
-        <div class = "row">
-          <div class="card right-card bottom-right">
-            <div class="card-body">
-              Placeholder for statistics
+
+      </div>
+
+      <div class="col-md-5">
+        <div class="card right-card top-right">
+          <div class="card-body">
+            <h3 class="card-title">START A NEW BACKTEST</h3>
+            <div class="btn btn-primary dash-btn" style="margin-top: 25px; border: none;"><a routerLink="#">DEPOSIT</a>
+            </div>
+          </div>
+        </div>
+        <div class="card right-card bottom-right">
+          <div class="card-body stats ">
+            <h3>Backtest Statistics</h3>
+            <div class="table">
+              <tbody>
+                <tr>
+                  <th scope="row">Start</th>
+                  <td>2004-08-19 00:00:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Start</th>
+                  <td>2004-08-19 00:00:00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Start</th>
+                  <td>2004-08-19 00:00:00</td>
+                </tr>
+              </tbody>
             </div>
           </div>
         </div>
@@ -169,4 +223,5 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </html>
