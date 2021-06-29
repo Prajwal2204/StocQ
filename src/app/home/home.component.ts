@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, TemplateRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
 
+
+  dropdownMenu(input){
+    console.log(input);
+    let x = input;
+    if (x.className === "nav-items") {
+      x.className += " responsive";
+    }
+    else {
+      x.className = "nav-items";
+    }
+  }
 }
