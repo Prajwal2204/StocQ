@@ -97,6 +97,12 @@ nav ul{
   font-weight: 400 !important;
 }
 
+#canvas-graph{
+  display: block;
+  height: 400px;
+  width:400px;
+}
+
 /* Header content */
 
 .header-container{
