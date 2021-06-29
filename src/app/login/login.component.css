@@ -126,7 +126,7 @@ color: #FFFFFF;
   text-decoration: none;
 
   background: #DD5353;
-  border-radius: 25px;
+  border-radius: 15px;
   padding: 12px 24px;
 }
 
@@ -139,7 +139,7 @@ color: #FFFFFF;
 .card{
   border-radius: 40px;
   border: none;
-  width:35vw;
+  width:100%;
   background-color: #013C53;
   padding: 20px 30px;
 }
@@ -168,4 +168,7 @@ input.ng-touched.ng-invalid{
 small{
   color:lightcoral;
 }
-
+input{
+  height:40px;
+  border-radius:13px;
+}

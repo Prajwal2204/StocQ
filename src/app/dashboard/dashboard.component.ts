@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
         console.log(error)
         if(error.status == 403){
           
-          console.log("user not authenticated")
+          console.log("User not authenticated")
           this.router.navigate(['/login'])
         }
       }

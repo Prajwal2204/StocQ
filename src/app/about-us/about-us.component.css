@@ -85,6 +85,16 @@ h1{
   margin-bottom: 5%;
 }
 
+h3{
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 5em;
+  line-height: 90px;
+  color: #FBFBFF;
+  margin-bottom: 5%;
+}
+
 p{
 font-weight: 100;
 font-size: 20px;
@@ -92,4 +102,11 @@ line-height: 27px;
 margin-top: 40px;
 color: #FFFFFF;
 line-height:35px;
+}
+
+.objectives li{
+  font-weight: 100;
+  font-size: 20px;
+  margin-top: 40px;
+  color: #FFFFFF;
 }

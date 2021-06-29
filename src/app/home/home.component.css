@@ -167,3 +167,7 @@ svg {
   background: #DD5353;
   border-radius: 25px;
 }
+
+.overlay{
+  position: relative;
+}
