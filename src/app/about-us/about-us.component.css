@@ -1,9 +1,5 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
 
-body{
+.main{
   font-family: 'Spartan', sans-serif;
   margin: 0;
   background: #01161E url('../../assets/bg-about.svg');
@@ -11,68 +7,6 @@ body{
   background-position: right;
   background-size:cover;
   min-height:100vh;
-}
-
-/* Navigation */
-
-.nav-container{
-  height: 90px;
-}
-
-.wrapper{
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 90px;
-}
-
-nav ul{
-  display: flex;
-}
-
-.nav-items li{
-  list-style: none;
-  margin-right: 50px;
-}
-.nav-items li:hover{
-  border-bottom: 1px solid #53DD6C;
-}
-.nav-items li:hover a{
-  color: #53DD6C !important;
-}
-
-.nav-items li:nth-last-of-type(1){
-  margin-right: 30px;
-}
-
-.nav-items li a{
-  color:#FFFFFF;
-  font-size: 13px !important;
-  line-height: 20px;
-  font-family: 'Spartan', sans-serif;
-  font-weight: 200 !important;
-  text-decoration: none;
-}
-
-.nav-items li a:hover{
-  color: #53DD6C;
-}
-
-.nav-items li a.active{
-  color: #53DD6C;
-}
-/* Header content */
-
-
-header{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 h1{

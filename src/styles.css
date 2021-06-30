@@ -6,3 +6,6 @@
     transform: translate(-50%, 0%);
     margin:auto;
 }
+html {
+    scroll-behavior: smooth;
+  }

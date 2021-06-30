@@ -32,13 +32,20 @@ export class DashboardComponent implements OnInit {
   public lineChartOptions: ChartOptions= {
     responsive: true,
     scales: {
-      xAxes: [
+      xAxes: [{
+        ticks: {
+          fontColor: "white",
+        }
+      }
 
       ],
       yAxes: [
         {
           id: 'y-axis-0',
           position: 'left',
+          ticks: {
+            fontColor: 'white',
+          }
         },
         {
           id: 'y-axis-1',
@@ -63,6 +70,39 @@ export class DashboardComponent implements OnInit {
   public lineChartType: ChartType= 'line';
   public lineChartPlugins = [];
 
+
+  //pie chart starts here
+
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+    legend: {
+      position: 'bottom',
+    },
+    plugins: {
+      legend:{
+        labels:{
+          color:'white',
+        }
+      },
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        },
+      },
+    }
+  };
+  public pieChartLabels: Label[] = [['Sells'], ['Buys']];
+  public pieChartData: number[] = [300, 500];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  public pieChartColors = [
+    {
+      borderColor: 'rgb(0,0,0,0)',
+      backgroundColor: ['rgba(255,0,0,0.6)', 'rgba(0,255,0,0.6)'],
+      color:'white',
+    },
+  ];
 
   constructor(private dash_service:DashboardService, private router:Router) {
 
