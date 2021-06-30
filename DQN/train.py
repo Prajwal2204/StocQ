@@ -139,4 +139,3 @@ for e in range(1, num_episode + 1):
         print("Training Complete")
 
 logging.info('total training time: {0:.2f} min'.format((time.time() - start_time)/60))
-plot_portfolio_returns_across_episodes(model_name, returns_across_episodes)
