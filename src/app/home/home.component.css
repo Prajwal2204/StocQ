@@ -91,6 +91,18 @@ h1{
   margin-bottom: 24px;
 }
 
+h3{
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 7em;
+  line-height: 80px;
+  text-align:center;
+  color: #FBFBFF;
+  margin-bottom: 24px;
+}
+
+
 header a{
   color: #FFFFFF;
   font-family: 'Spartan', sans-serif;
@@ -224,7 +236,7 @@ ul.nav-items li.dropdownIcon {
   ul.nav-items.responsive li{
       display: block;
       float: none;
-      
+
   }
   ul.nav-items.responsive li a{
       display: block;
@@ -234,4 +246,9 @@ ul.nav-items li.dropdownIcon {
       background-color: lightcoral;
   }
 
+}
+
+.text-div h3{
+  text-align: center;
+vertical-align: middle;
 }

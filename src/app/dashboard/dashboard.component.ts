@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   public alert:string = ""
 
 
+
   public lineChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
     { data: [60, 5, 88, 31, 46, 15, 90], label: 'Series B' }
@@ -66,6 +67,7 @@ export class DashboardComponent implements OnInit {
   constructor(private dash_service:DashboardService, private router:Router) {
 
   }
+
 
   ngOnInit(): void {
 

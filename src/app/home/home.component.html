@@ -15,13 +15,13 @@
   <div class="nav-container">
     <div class="wrapper">
       <nav>
-        <div class="d-flex logo">
-          <h3 routerLink = "/home" style="font-size:35px; font-weight:800;color:white !important;">
-            <img height="55px" src = "../../assets/logo.png"> STOC<span style="color:#53DD6C">Q</span>
+        <div class="d-flex logo" id="home">
+          <h3 routerLink="/home" style="font-size:35px; font-weight:800;color:white !important;">
+            <img height="55px" src="../../assets/logo.png"> STOC<span style="color:#53DD6C">Q</span>
           </h3>
         </div>
 
-        <ul class = "nav-items" #dropdownClick>
+        <ul class="nav-items" #dropdownClick>
           <li>
             <a routerLink="/dashboard">DASHBOARD</a>
           </li>
@@ -31,8 +31,8 @@
           <li>
             <a routerLink="/login">LOGIN</a>
           </li>
-          <li class = "dropdownIcon">
-            <a href = "javascript:void(0);" (click) = "dropdownMenu(dropdownClick)">&#9776;</a>
+          <li class="dropdownIcon">
+            <a href="javascript:void(0);" (click)="dropdownMenu(dropdownClick)">&#9776;</a>
           </li>
         </ul>
       </nav>
@@ -95,6 +95,7 @@
       </div>
 
     </div>
+
     <div class="row">
       <div class="col-md-6">
         <div class="btn btn-primary dash-btn"><a routerLink="/dashboard">Dashboard</a></div>
@@ -104,18 +105,50 @@
 
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="nav-container"></div>
+        <div class="nav-container"></div>
+        <div class="nav-container"></div>
+      </div>
+    </div>
   </div>
 
   <div class="container" style="min-height:100vh">
     <div class="row">
-      <div class="col-md-12 d-flex align-items-center justify-content-center text-center" style="margin-top:100px;">
-        <div class="overlay">
-          <img style="max-width:100%" src="../../assets/3d-logo-2.png" alt="">
-        </div>
-        <h3 class="text-overlay">DEEP Q LEARNING + FINANCIAL MARKETS = STOCQ </h3>
-
+      <!-- <div class="col-md-12 d-flex align-items-center justify-content-center text-center" style="margin-top:100px;"> -->
+      <div class="col-md-6">
+        <img style="width: 650px; height: 450px; padding: 0px 150px 0px 0px; margin: 100px 150px 0px 0px;" src="../../assets/green-increase.png" alt="">
+      </div>
+      <div class="col-md-6 text-div text-center">
+          <h3 class="text-center">DEEP <span style="color:#53DD6C">Q</span> LEARNING</h3>
+          <h3 class="text-center"><span style="color:#DD5353">+</span></h3>
+          <h3 class="text-center">FINANCIAL MARKETS</h3>
+          <h3 class="text-center"><span style="color:#DD5353">=</span></h3>
+          <h1 class="text-center">STOC<span style="color:#53DD6C">Q</span></h1>
       </div>
 
+
+      <!-- </div> -->
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="nav-container"></div>
+        <div class="nav-container"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <img style="max-width: 100%; max-height: 100%; padding: 50px 0px;" src = "../../assets/fancy-img.png">
+        <div class="btn btn-primary dash-btn"><a href="#home">Go back to top</a></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="nav-container"></div>
+        <div class="nav-container"></div>
+      </div>
     </div>
   </div>
 </body>
