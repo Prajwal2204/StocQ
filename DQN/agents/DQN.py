@@ -10,9 +10,6 @@ from tensorflow.keras.optimizers import Adam
 
 from utils import Portfolio
 
-#stock_prices
-# reference:
-# https://arxiv.org/pdf/1312.5602.pdf
 class Agent(Portfolio):
     def __init__(self, state_dim, balance, is_eval=False, model_name=""):
         super().__init__(balance=balance)
@@ -26,7 +23,7 @@ class Agent(Portfolio):
         self.epsilon = 1.0  # initial exploration rate
         self.epsilon_min = 0.01  # minimum exploration rate
         self.epsilon_decay = 0.995 # decrease exploration rate as the agent becomes good at trading
-        self.is_eval = is_eval
+        self.is_eval = is_eval #Train or test
         self.model = load_model('saved_models/{}.h5'.format(model_name)) if is_eval else self.model()
 
         self.tensorboard = TensorBoard(log_dir='./logs/DQN_tensorboard', update_freq=90)
@@ -48,6 +45,7 @@ class Agent(Portfolio):
     def remember(self, state, actions, reward, next_state, done):
         self.memory.append((state, actions, reward, next_state, done))
 
+    #exploration function
     def act(self, state):
         if not self.is_eval and np.random.rand() <= self.epsilon:
             return random.randrange(self.action_dim)
@@ -56,6 +54,7 @@ class Agent(Portfolio):
 
     def experience_replay(self):
         # retrieve recent buffer_size long memory
+        #first <buffer_size> number of states into mini batch
         mini_batch = [self.memory[i] for i in range(len(self.memory) - self.buffer_size + 1, len(self.memory))]
 
         for state, actions, reward, next_state, done in mini_batch:

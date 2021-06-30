@@ -78,19 +78,13 @@ for e in range(1, num_episode + 1):
     state = generate_combined_state(0, window_size, stock_prices, agent.balance, len(agent.inventory))
 
     for t in range(1, trading_period + 1):
-        if t % 100 == 0:
-            logging.info(f'\n-------------------Period: {t}/{trading_period}-------------------')
 
         reward = 0
         next_state = generate_combined_state(t, window_size, stock_prices, agent.balance, len(agent.inventory))
         previous_portfolio_value = len(agent.inventory) * stock_prices[t] + agent.balance
 
-        if model_name == 'DDPG':
-            actions = agent.act(state, t)
-            action = np.argmax(actions)
-        else:
-            actions = agent.model.predict(state)[0]
-            action = agent.act(state)
+        actions = agent.model.predict(state)[0]
+        action = agent.act(state)
         
         # execute position
         print("Step Going")
@@ -118,6 +112,7 @@ for e in range(1, num_episode + 1):
         reward += unrealized_profit
 
         agent.portfolio_values.append(current_portfolio_value)
+        #return daily P/L rates
         agent.return_rates.append((current_portfolio_value - previous_portfolio_value) / previous_portfolio_value)
 
         done = True if t == trading_period else False
@@ -139,11 +134,7 @@ for e in range(1, num_episode + 1):
 
     # save models periodically
     if e % 5 == 0:
-        if model_name == 'DQN':
-            agent.model.save('saved_models/DQN_ep' + str(e) + '.h5')
-        elif model_name == 'DDPG':
-            agent.actor.model.save_weights('saved_models/DDPG_ep{}_actor.h5'.format(str(e)))
-            agent.critic.model.save_weights('saved_models/DDPG_ep{}_critic.h5'.format(str(e)))
+        agent.model.save('saved_models/DQN_ep' + str(e) + '.h5')
         logging.info('model saved')
         print("Training Complete")
 

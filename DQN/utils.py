@@ -94,16 +94,3 @@ def evaluate_portfolio_performance(agent, logger):
     logger.info("--------------------------------")
     return portfolio_return
 
-
-
-def buy_and_hold_benchmark(stock_name, agent):
-    df = pd.read_csv('./data/{}.csv'.format(stock_name))
-    dates = df['Date']
-    num_holding = agent.initial_portfolio_value // df.iloc[0, 4]
-    balance_left = agent.initial_portfolio_value % df.iloc[0, 4]
-    buy_and_hold_portfolio_values = df['Close']*num_holding + balance_left
-    buy_and_hold_return = buy_and_hold_portfolio_values.iloc[-1] - agent.initial_portfolio_value
-    return dates, buy_and_hold_portfolio_values, buy_and_hold_return
-
-
-
