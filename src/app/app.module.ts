@@ -6,14 +6,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieModule } from 'ngx-cookie';
 import { ChartsModule } from 'ng2-charts';
-import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    NavbarComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,

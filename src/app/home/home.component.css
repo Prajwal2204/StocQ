@@ -1,5 +1,5 @@
 
-  
+
   .main{
     font-family: 'Spartan', sans-serif;
     margin: 0;
@@ -9,9 +9,9 @@
     background-size:cover;
     background: radial-gradient(111.56% 230% at -1.56% 160%, #53DD6C 0.97%, #015E82 54.69%, #181818 96.35%);
   }
-  
 
-  
+
+
   h1{
     font-family: Spartan;
     font-style: normal;
@@ -21,19 +21,19 @@
     color: #FBFBFF;
     margin-bottom: 24px;
   }
-  
+
   h3{
     font-family: Spartan;
     font-style: normal;
     font-weight: 400;
     font-size: 7em;
-    line-height: 80px;
+    line-height: 120px;
     text-align:center;
     color: #FBFBFF;
     margin-bottom: 24px;
   }
-  
-  
+
+
   header a{
     color: #FFFFFF;
     font-family: 'Spartan', sans-serif;
@@ -41,17 +41,17 @@
     font-weight: 600;
     font-size: 18px;
     text-decoration: none;
-  
+
     background: #DD5353;
     border-radius: 25px;
     padding: 24px 48px;
   }
-  
+
   header a:hover{
     color: #53DD6C;
     background: #FFFFFF;
   }
-  
+
   .dash-btn{
     color: #FFFFFF;
     font-family: 'Spartan', sans-serif;
@@ -64,39 +64,39 @@
     border-radius: 15px;
     padding: 15px 24px;
   }
-  
+
   .dash-btn a{
     color:#FFFFFF;
   }
-  
+
   .dash-btn a:hover{
     text-decoration: none;
   }
-  
+
   .dash-btn:hover{
-  
+
     background: #53DD6C;
-  
+
   }
-  
+
   /* Hero Image */
-  
+
   svg {
     margin: auto;
     animation-fill-mode: backwards;
   }
-  
+
   #ema {
     stroke-dasharray: 1000;
     animation: dash 4s infinite ease-in-out;
   }
-  
+
   @keyframes dash {
     to {
         stroke-dashoffset: 2000;
     }
   }
-  
+
   .my-btn{
     color: #FFFFFF;
     font-weight: 600;
@@ -111,4 +111,7 @@
     text-align: center;
   vertical-align: middle;
   }
-  
+
+  hr.new1 {
+    border: 1px solid white;
+  }
