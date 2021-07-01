@@ -14,7 +14,7 @@ class Agent(Portfolio):
     def __init__(self, state_dim, balance, is_eval=False, model_name=""):
         super().__init__(balance=balance)
         self.model_type = 'DQN'
-        self.state_dim = state_dim
+        self.state_dim = state_dim #input size = window size + portfolio state(3)
         self.action_dim = 3  # hold, buy, sell
         self.memory = deque(maxlen=100)
         self.buffer_size = 30

@@ -1,3 +1,4 @@
+from empyrical.stats import annual_return
 import numpy as np
 import pandas as pd
 from empyrical import sharpe_ratio
@@ -23,10 +24,6 @@ class Portfolio:
         
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
-
-
-def softmax(x):
-    return np.exp(x) / np.sum(np.exp(x))
 
 
 def stock_close_prices(key):
@@ -68,9 +65,10 @@ def generate_combined_state(end_index, window_size, stock_prices, balance, num_h
     return np.array([np.concatenate((prince_state, portfolio_state), axis=None)])
 
 
-def treasury_bond_daily_return_rate():
-    r_year = 2.75 / 100  # approximate annual U.S. Treasury bond return rate
-    return (1 + r_year)**(1 / 365) - 1
+def average_interest_rate(trading_period):
+    #returns average mutual funds per annum 6 to 9% as per google
+    #so return per candle of missed oppurtunity will be
+    return 0.0003
 
 
 def maximum_drawdown(portfolio_values):

@@ -99,7 +99,7 @@ for e in range(1, num_episode + 1):
         
         # check execution result
         if execution_result is None:
-            reward -= treasury_bond_daily_return_rate() * agent.balance  # missing opportunity
+            reward -= average_interest_rate(trading_period) * agent.balance  # missing opportunity
         else:
             if isinstance(execution_result, tuple): # if execution_result is 'Hold'
                 actions = execution_result[1]
@@ -126,16 +126,14 @@ for e in range(1, num_episode + 1):
             num_experience_replay += 1
             loss = agent.experience_replay()
             logging.info('Episode: {}\tLoss: {:.2f}\tAction: {}\tReward: {:.2f}\tBalance: {:.2f}\tNumber of Stocks: {}'.format(e, loss, action_dict[action], reward, agent.balance, len(agent.inventory)))
-            agent.tensorboard.on_batch_end(num_experience_replay, {'loss': loss, 'portfolio value': current_portfolio_value})
 
         if done:
             portfolio_return = evaluate_portfolio_performance(agent, logging)
             returns_across_episodes.append(portfolio_return)
 
-    # save models periodically
-    if e % 5 == 0:
-        agent.model.save('saved_models/DQN_ep' + str(e) + '.h5')
-        logging.info('model saved')
-        print("Training Complete")
+    # save models every episode
+    agent.model.save('saved_models/DQN_ep' + str(e) + '.h5')
+    logging.info('model saved')
+    print("Training Complete")
 
 logging.info('total training time: {0:.2f} min'.format((time.time() - start_time)/60))
