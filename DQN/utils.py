@@ -37,9 +37,7 @@ def stock_close_prices(key):
 
 def generate_price_state(stock_prices, end_index, window_size):
     '''
-    return a state representation, defined as
-    the adjacent stock price differences after sigmoid function (for the past window_size days up to end_date)
-    note that a state has length window_size, a period has length window_size+1
+    returns prices smushed by sigmoid 0 to 1 of all window size number of prices
     '''
     start_index = end_index - window_size
     if start_index >= 0:
@@ -56,9 +54,7 @@ def generate_portfolio_state(stock_price, balance, num_holding):
 
 def generate_combined_state(end_index, window_size, stock_prices, balance, num_holding):
     '''
-    return a state representation, defined as
-    adjacent stock prices differences after sigmoid function (for the past window_size days up to end_date) plus
-    logarithmic values of stock price at end_date, portfolio balance, and number of holding stocks
+    returns smushed value of all <window size> prices + portfolio state(price, balance, inventory)
     '''
     prince_state = generate_price_state(stock_prices, end_index, window_size)
     portfolio_state = generate_portfolio_state(stock_prices[end_index], balance, num_holding)
