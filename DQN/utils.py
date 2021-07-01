@@ -87,7 +87,7 @@ def evaluate_portfolio_performance(agent, logger):
     logger.info('Portfolio Stocks Number: {}'.format(len(agent.inventory)))
     logger.info('Total Return:           ${:.2f}'.format(portfolio_return))
     logger.info('Mean/Daily Return Rate:  {:.3f}%'.format(np.mean(agent.return_rates) * 100))
-    logger.info('Sharpe Ratio adjusted with Treasury bond daily return: {:.3f}'.format(sharpe_ratio(np.array(agent.return_rates)), risk_free=treasury_bond_daily_return_rate()))
+    logger.info('Sharpe Ratio adjusted with Treasury bond daily return: {:.3f}'.format(sharpe_ratio(np.array(agent.return_rates)), risk_free=average_interest_rate()))
     logger.info('Maximum Drawdown:        {:.3f}%'.format(maximum_drawdown(agent.portfolio_values) * 100))
     logger.info("--------------------------------")
     return portfolio_return
