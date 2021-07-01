@@ -99,7 +99,7 @@ for e in range(1, num_episode + 1):
         
         # check execution result
         if execution_result is None:
-            reward -= average_interest_rate(trading_period) * agent.balance  # missing opportunity
+            reward -= average_interest_rate() * agent.balance  # missing opportunity
         else:
             if isinstance(execution_result, tuple): # if execution_result is 'Hold'
                 actions = execution_result[1]
