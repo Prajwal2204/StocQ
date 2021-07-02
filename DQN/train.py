@@ -6,8 +6,6 @@ import time
 
 from utils import *
 
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 parser = argparse.ArgumentParser(description='command line options')
 parser.add_argument('--model_name', action="store", dest="model_name", default='DQN', help="model name")
@@ -134,6 +132,7 @@ for e in range(1, num_episode + 1):
     # save models every episode
     agent.model.save('saved_models/DQN_ep' + str(e) + '.h5')
     logging.info('model saved')
+    plot_portfolio_performance_comparison(stock_name, agent)
     print("Training Complete")
 
 logging.info('total training time: {0:.2f} min'.format((time.time() - start_time)/60))
