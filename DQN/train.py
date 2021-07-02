@@ -85,7 +85,7 @@ for e in range(1, num_episode + 1):
         action = agent.act(state)
         
         # execute position
-        print("Step Going")
+        print("Step Going-",t)
         logging.info('Step: {}\tHold signal: {:.4} \tBuy signal: {:.4} \tSell signal: {:.4}'.format(t, actions[0], actions[1], actions[2]))
         if action != np.argmax(actions): logging.info(f"\t\t'{action_dict[action]}' is an exploration.")
         if action == 0: # hold
