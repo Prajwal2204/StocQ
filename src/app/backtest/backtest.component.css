@@ -1,0 +1,174 @@
+
+.main{
+  font-family: 'Spartan', sans-serif;
+  margin: 0;
+  padding:0;
+  background: #01161E;
+  background-repeat: none;
+  background-position: center;
+  background-size:cover;
+  min-height:100vh;
+  background: radial-gradient(111.56% 230% at -1.56% 160%, #53DD6C 0.97%, #015E82 54.69%, #181818 96.35%);
+
+}
+
+
+#canvas-graph{
+  display: block;
+  height: 400px;
+  width:400px;
+}
+
+h1{
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 7em;
+  line-height: 112px;
+  color: #FBFBFF;
+  margin-bottom: 24px;
+}
+
+td{
+  color: #FFFFFF;
+}
+
+header a{
+  color: #FFFFFF;
+  font-family: 'Spartan', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+
+  background: #DD5353;
+  border-radius: 25px;
+  padding: 24px 48px;
+}
+
+header a:hover{
+  color: #53DD6C;
+  background: #FFFFFF;
+}
+
+.dash-btn{
+  color: #FFFFFF;
+  font-family: 'Spartan', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 6px;
+  background: #DD5353;
+  border-radius: 20px;
+  padding: 15px 24px;
+}
+
+
+.dash-btn a{
+  color:#FFFFFF;
+}
+
+.dash-btn a:hover{
+  text-decoration: none;
+}
+
+.dash-btn:hover{
+
+  border: none;
+  background: #53DD6C;
+
+}
+
+/* Hero Image */
+
+header .hero-image{
+  position: relative;
+  margin-right: 0;
+}
+
+
+svg {
+  margin: auto;
+  animation-fill-mode: backwards;
+}
+
+#ema {
+  stroke-dasharray: 1000;
+  animation: dash 4s infinite ease-in-out;
+}
+
+@keyframes dash {
+  to {
+      stroke-dashoffset: 2000;
+  }
+}
+
+.my-btn{
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 18px;
+  text-decoration: none;
+  background: #DD5353;
+  border-radius: 25px;
+}
+
+.card{
+  border-radius: 50px;
+  margin:20px 0px;
+  min-height:250px;
+  background: #013C53;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 10.5px );
+  -webkit-backdrop-filter: blur( 10.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 30px;
+}
+
+.card h3{
+  color: #FFFFFF;
+}
+
+.card-title{
+  color: #FFFFFF;
+  font-family: 'Spartan', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.card-body{
+  text-align: center;
+}
+
+.right-card{
+  margin-left: 6px;
+}
+
+.top-right{
+  height: fit-content;
+}
+
+.bottom-right{
+  height: 595px;
+}
+
+.stats h3{
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 70px;
+  color: #FBFBFF;
+  margin-bottom: 24px;
+}
+.stats{
+  font-weight: 200;
+  font-size: 16px;
+  color: #d3d3d3;
+  margin-bottom: 24px;
+}
+.table{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+}

@@ -1,0 +1,63 @@
+<div class="main">
+  <app-navbar></app-navbar>
+
+  <div class="nav-container second-nav">
+    <div class="top-box alert alert-danger" *ngIf="alert != ''">
+      {{alert}}
+    </div>
+    <div class="wrapper">
+      <nav>
+        <div class="container">
+
+          <h3 class="second-nav-text" style="text-transform:capitalize; color:#FFFFFF; margin-top: 12px; font-weight:500 !important;">
+            Welcome <span style="color:#53DD6C">{{username}}!</span>
+          </h3>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card d-flex">
+          <h3 class="second-nav-text text-center" style="font-weight: 600; margin-top: 5px;">
+            BALANCE
+          </h3>
+          <h3 class="second-nav-text text-center" style="margin-top:22px;">
+            $50,000
+          </h3>
+          <div class="row">
+            <div class="col-md-12" style="width:100%; height: 11px;">
+            </div>
+          </div>
+          <div class="d-flex" style="padding: 0px 92px;">
+            <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#">DEPOSIT</a></div>
+            <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#">WITHDRAW</a></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="card right-card top-right">
+          <div class="card-body">
+            <h3 class="card-title" style="margin-top: 5px;">START A NEW BACKTEST</h3>
+            <div class="btn btn-primary dash-btn" style="margin-top: 35px; border: none;"><a routerLink="#">DEPOSIT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" style="padding: 0px 250px;">
+        <div class="card d-flex">
+          <div class="card-body">
+            <h3 class="card-title" style="margin-top: 25px;">CHECK YOUR PORTFOLIO/DASHBOARD</h3>
+            <div class="btn btn-primary dash-btn" style="margin-top: 35px; border: none;"><a routerLink="/dashboard">DASHBOARD</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
