@@ -54,7 +54,7 @@ class Agent(Portfolio):
 
     def experience_replay(self):
         # retrieve recent buffer_size long memory
-        #first <buffer_size> number of states into mini batch
+        #last <buffer_size> number of states into mini batch
         mini_batch = [self.memory[i] for i in range(len(self.memory) - self.buffer_size + 1, len(self.memory))]
 
         for state, actions, reward, next_state, done in mini_batch:
