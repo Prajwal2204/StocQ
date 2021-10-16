@@ -9,7 +9,8 @@
       <nav>
         <div class="container">
 
-          <h3 class="second-nav-text" style="text-transform:capitalize; color:#FFFFFF; margin-top: 12px; font-weight:500 !important;">
+          <h3 class="second-nav-text"
+            style="text-transform:capitalize; color:#FFFFFF; margin-top: 12px; font-weight:500 !important;">
             Welcome <span style="color:#53DD6C">{{username}}!</span>
           </h3>
         </div>
@@ -43,15 +44,16 @@
           <div class="card-body">
             <h3 class="card-title" style="margin-top: 5px;">START A NEW BACKTEST</h3>
             <div class="dropdown show" style="margin-top: 25px;">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Pick a Stock
               </a>
-            
+
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#">Stock 1</a>
                 <a class="dropdown-item" href="#">Stock 2</a>
                 <a class="dropdown-item" href="#">Stock 3</a>
-                
+
               </div>
             </div>
             <div class="btn btn-primary dash-btn" style="margin-top: 35px; border: none;"><a routerLink="#">DEPOSIT</a>
@@ -76,85 +78,79 @@
 
 
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
+<div class="custom-container">
+  <div class="container ">
+    <footer class="page-footer font-small blue pt-4 ">
 
-  <!-- Footer Links -->
-  <div class="container-fluid text-center text-md-left">
+      <!-- Footer Links -->
+      <div class="container-fluid text-center text-md-left">
 
-    <!-- Grid row -->
-    <div class="row">
+        <!-- Grid row -->
+        <div class="row">
 
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
+          <!-- Grid column -->
+          <div class="col-md-6 mt-md-0 mt-3">
 
-        <!-- Content -->
-        <h5 class="text-uppercase">StocQ</h5>
-        <p>This is a stock trading application made using machine learning models where the users can start a backtest on stocks of certain companies and take a wise decision as to deposit or withdraw </p>
+            <!-- Content -->
+            <!-- <h5 class="text-uppercase">StocQ</h5> -->
+            <h4 class="custom-h4"><span>STOC</span> <span style="color:#53DD6C">Q</span></h4>
+            <h6 class="custom-h6">
+              <p>This is a stock trading application made using machine learning models where the users can start a
+                backtest
+                on stocks of certain companies and take a wise decision as to deposit or withdraw </p>
+            </h6>
 
-      </div>
-      <!-- Grid column -->
+          </div>
+          <!-- Grid column -->
 
-      <hr class="clearfix w-100 d-md-none pb-3">
+          <hr class="clearfix w-100 d-md-none pb-3">
 
-      <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+          </div>
+          <!-- Grid column -->
 
-        <!-- Links -->
-        <!-- <h5 class="text-uppercase">Links</h5> -->
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
 
-        <!-- <ul class="list-unstyled">
-          <li>
-            <a href="#!">Link 1</a>
-          </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul> -->
+            <!-- Links -->
+            <h5 class="text-uppercase custom-font">Useful Links</h5>
 
-      </div>
-      <!-- Grid column -->
+            <ul class="list-unstyled">
+              <li>
+                <a href="/home">Home</a>
+              </li>
+              <li>
+                <a href="/backtest">Get Started</a>
+              </li>
+              <li>
+                <a href="/about-us">About Us</a>
+              </li>
+              <li>
+                <a href="#!">Contact</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            </ul>
 
-      <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
+          </div>
+          <!-- Grid column -->
 
-        <!-- Links -->
-        <h5 class="text-uppercase">Links</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="/backtest">Get Started</a>
-          </li>
-          <li>
-            <a href="/about-us">About Us</a>
-          </li>
-          <li>
-            <a href="#!">Contact</a>
-          </li>
-          <li>
-            <a href="/login">Login</a>
-          </li>
-        </ul>
+        </div>
+        <!-- Grid row -->
 
       </div>
-      <!-- Grid column -->
+      <!-- Footer Links -->
+      <div class="col-md-12" style="width:100%; height: 15px;">
+      </div>
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3 custom-h6">© 2021 Copyright StocQ
 
-    </div>
-    <!-- Grid row -->
+      </div>
+      <!-- Copyright -->
 
+    </footer>
   </div>
-  <!-- Footer Links -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:StocQ
-    
-  </div>
-  <!-- Copyright -->
-
-</footer>
+</div>
 <!-- Footer -->

@@ -26,7 +26,7 @@
     font-family: Spartan;
     font-style: normal;
     font-weight: 400;
-    font-size: 5em;
+    font-size: 3em;
     line-height: 120px;
     text-align:center;
     color: #FBFBFF;
@@ -119,8 +119,8 @@
   .objectives li{
     font-family: Spartan;
     font-weight: 100;
-    font-size: 2em;
-    margin-top: 40px;
+    font-size: 1.5em;
+    margin-top: 20px;
     color: #FFFFFF;
   }
 
@@ -130,9 +130,43 @@
     font-family: Spartan;
     font-style: normal;
     font-weight: 100;
-    font-size: 2em;
-    line-height: 80px;
+    font-size: 1.5em;
+    line-height: 40px;
     text-align:left;
     color: #FBFBFF;
     margin-bottom: 24px;
+  }
+
+  .custom-container{
+    background: #013C53;
+  }
+  
+  .custom-h4{
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 48px;
+    color: #FBFBFF;
+    margin-bottom: 3%;
+  }
+  
+  .custom-h6{
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 1em;
+    line-height: 24px;
+    color: #FBFBFF;
+    /* margin-bottom: 5%; */
+  }
+  
+  .custom-font{
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 36px;
+    color: #FBFBFF;
+    margin-bottom: 5%;
   }

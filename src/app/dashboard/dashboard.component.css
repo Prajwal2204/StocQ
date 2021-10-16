@@ -171,3 +171,37 @@ svg {
   align-content: center;
   flex-direction: row;
 }
+
+.custom-container{
+  background: #013C53;
+}
+
+.custom-h4{
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2em;
+  line-height: 48px;
+  color: #FBFBFF;
+  margin-bottom: 3%;
+}
+
+.custom-h6{
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 1em;
+  line-height: 24px;
+  color: #FBFBFF;
+  /* margin-bottom: 5%; */
+}
+
+.custom-font{
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 36px;
+  color: #FBFBFF;
+  margin-bottom: 5%;
+}
