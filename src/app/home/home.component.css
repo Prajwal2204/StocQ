@@ -26,7 +26,7 @@
     font-family: Spartan;
     font-style: normal;
     font-weight: 400;
-    font-size: 7em;
+    font-size: 5em;
     line-height: 120px;
     text-align:center;
     color: #FBFBFF;
@@ -114,4 +114,25 @@
 
   hr.new1 {
     border: 1px solid white;
+  }
+
+  .objectives li{
+    font-family: Spartan;
+    font-weight: 100;
+    font-size: 2em;
+    margin-top: 40px;
+    color: #FFFFFF;
+  }
+
+
+
+  .para {
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 2em;
+    line-height: 80px;
+    text-align:left;
+    color: #FBFBFF;
+    margin-bottom: 24px;
   }
