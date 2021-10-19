@@ -205,3 +205,15 @@ svg {
   color: #FBFBFF;
   margin-bottom: 5%;
 }
+
+.custom-height{
+  height: 300px;
+}
+
+/* Chart */
+
+#divChart{
+  display: block;
+  /* width: 400px;
+  height: 250px; */
+}
