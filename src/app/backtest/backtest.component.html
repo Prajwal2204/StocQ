@@ -124,26 +124,44 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Pick a Stock
               </a>
-
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" value="BABA_2018" href="#">ALIBABA 2018</a>
-                <a class="dropdown-item" value="BA_2020" href="#">BOEING 2020</a>
-                <a class="dropdown-item" value="FB_2018" href="#">FACEBOOK 2018</a>
-                <a class="dropdown-item" value="GOOG_2020" href="#">ALPHABET INC 2020</a>
-                <a class="dropdown-item" value="INFY_2020" href="#">INFOSYS 2020</a>
-                <a class="dropdown-item" value="KO_2020" href="#">COCOCOLA 2020</a>
-                <a class="dropdown-item" value="NVDA_2020" href="#">NVIDIA 2020</a>
-                <a class="dropdown-item" value="RELIANCE.NS_2020-2016" href="#">RELIANCE 2020-2016</a>
-                <a class="dropdown-item" value="TSLA_2020" href="#">TESLA 2020</a>
-                <a class="dropdown-item" value="TTM_2020" href="#">TATA MOTORS 2020</a>
-                <a class="dropdown-item" value="UL_2020" href="#">UNILEVER 2020</a>
-                <a class="dropdown-item" value="GSPC_2016" href="#">S&P 500 2016</a>
-                <a class="dropdown-item" value="GSPC_2018" href="#">S&P 500 2018</a>
+              <form #backtestForm="ngForm" (ngSubmit)="startBacktest(backtestForm.value)">
+                <select class="dropdown-menu">
+                  <option class="dropdown-item" value="BABA_2018">ALIBABA 2018</option>
+                  <option class="dropdown-item" value="BA_2020">BOEING 2020</option>
+                  <option class="dropdown-item" value="FB_2018">FACEBOOK 2018</option>
+                  <option class="dropdown-item" value="GOOG_2020">ALPHABET INC 2020</option>
+                  <option class="dropdown-item" value="INFY_2020">INFOSYS 2020</option>
+                  <option class="dropdown-item" value="KO_2020">COCOCOLA 2020</option>
+                  <option class="dropdown-item" value="NVDA_2020">NVIDIA 2020</option>
+                  <option class="dropdown-item" value="RELIANCE.NS_2020-2016">RELIANCE 2020-2016</option>
+                  <option class="dropdown-item" value="TSLA_2020">TESLA 2020</option>
+                  <option class="dropdown-item" value="TTM_2020">TATA MOTORS 2020</option>
+                  <option class="dropdown-item" value="UL_2020">UNILEVER 2020</option>
+                  <option class="dropdown-item" value="GSPC_2016">S&P 500 2016</option>
+                  <option class="dropdown-item" value="GSPC_2018">S&P 500 2018</option>
+                </select>
+                <button class="btn btn-primary dash-btn" style="margin-top: 35px; border: none;">START
+                </button>
+              </form>
+              <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <option class="dropdown-item" value="BABA_2018" href="#">ALIBABA 2018</option>
+                <option class="dropdown-item" value="BA_2020" href="#">BOEING 2020</option>
+                <option class="dropdown-item" value="FB_2018" href="#">FACEBOOK 2018</option>
+                <option class="dropdown-item" value="GOOG_2020" href="#">ALPHABET INC 2020</option>
+                <option class="dropdown-item" value="INFY_2020" href="#">INFOSYS 2020</option>
+                <option class="dropdown-item" value="KO_2020" href="#">COCOCOLA 2020</option>
+                <option class="dropdown-item" value="NVDA_2020" href="#">NVIDIA 2020</option>
+                <option class="dropdown-item" value="RELIANCE.NS_2020-2016" href="#">RELIANCE 2020-2016</option>
+                <option class="dropdown-item" value="TSLA_2020" href="#">TESLA 2020</option>
+                <option class="dropdown-item" value="TTM_2020" href="#">TATA MOTORS 2020</option>
+                <option class="dropdown-item" value="UL_2020" href="#">UNILEVER 2020</option>
+                <option class="dropdown-item" value="GSPC_2016" href="#">S&P 500 2016</option>
+                <option class="dropdown-item" value="GSPC_2018" href="#">S&P 500 2018</option> -->
 
               </div>
             </div>
-            <div class="btn btn-primary dash-btn" style="margin-top: 35px; border: none;"><a routerLink="#">START</a>
-            </div>
+            <!-- <div class="btn btn-primary dash-btn" style="margin-top: 35px; border: none;"><a routerLink="#">START</a>
+            </div> -->
           </div>
         </div>
       </div>
@@ -159,7 +177,7 @@
         </div>
       </div>
     </div> -->
-  </div>
+  <!-- </div> -->
 </div>
 
 
