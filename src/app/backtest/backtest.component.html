@@ -30,7 +30,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form #depositForm="ngForm">
+          <form #depositForm="ngForm" (ngSubmit)="deposit(depositForm.value)">
             <div class="form-group">
               <div class="row">
                 <div class="col-md-12">
@@ -68,7 +68,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form #withdrawForm="ngForm">
+          <form #withdrawForm="ngForm" (ngSubmit)="withdraw(withdrawForm.value)">
             <div class="form-group">
               <div class="row">
                 <div class="col-md-12">
