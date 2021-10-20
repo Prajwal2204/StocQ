@@ -13,6 +13,7 @@ export class BacktestComponent implements OnInit {
 
 
   public username:any = "USER"
+  public balance:number = 0
   public alert:string = ""
 
 
@@ -73,6 +74,7 @@ export class BacktestComponent implements OnInit {
       next:data=>{
         let body = JSON.parse(JSON.stringify(data.body));
         this.username = body.username
+        this.balance = Number(body.balance)
       },
       error:error=>{
         console.log(error)

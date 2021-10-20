@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 export class DashboardService {
 
   private server_url: string = environment.HOST_LINK_ADDRESS;
-  readonly dashboard_base: string = 'api/dashboard/';
+  readonly dashboard_base: string = 'backtest/balance/';
   
 
   constructor(private http:HttpClient
