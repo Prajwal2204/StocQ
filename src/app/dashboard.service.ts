@@ -29,7 +29,6 @@ export class DashboardService {
       let backtest_url = this.server_url + "backtest/start?stock_name=" + stock_name
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-
       this.http.get(backtest_url, {responseType:'json', observe:'response', withCredentials:true}).subscribe({
         next:data=>{
           console.log(data.body)
