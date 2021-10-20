@@ -18,6 +18,82 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="depositModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Enter Amount</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #depositForm="ngForm" (ngSubmit)="deposit(depositForm.value)">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="depositModalLabel">Enter the amount you wish to deposit</label>
+                  <input type="text" placeholder="Enter Amount">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary custom-dash-btn">Deposit</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Enter Amount</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #withdrawForm="ngForm" (ngSubmit)="withdraw(withdrawForm.value)">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-12">
+                  <label class="depositModalLabel">Enter the amount you wish to withdraw</label>
+                  <input type="text" placeholder="Enter Amount">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-primary custom-dash-btn">Withdraw</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -33,8 +109,8 @@
             </div>
           </div>
           <div class="d-flex" style="padding: 0px 92px;">
-            <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#">DEPOSIT</a></div>
-            <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#">WITHDRAW</a></div>
+            <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#" data-toggle="modal" data-target="#depositModal">DEPOSIT</a></div>
+            <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#" data-toggle="modal" data-target="#withdrawModal">WITHDRAW</a></div>
           </div>
         </div>
 
@@ -50,9 +126,19 @@
               </a>
 
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Stock 1</a>
-                <a class="dropdown-item" href="#">Stock 2</a>
-                <a class="dropdown-item" href="#">Stock 3</a>
+                <a class="dropdown-item" value="BABA_2018" href="#">ALIBABA 2018</a>
+                <a class="dropdown-item" value="BA_2020" href="#">BOEING 2020</a>
+                <a class="dropdown-item" value="FB_2018" href="#">FACEBOOK 2018</a>
+                <a class="dropdown-item" value="GOOG_2020" href="#">ALPHABET INC 2020</a>
+                <a class="dropdown-item" value="INFY_2020" href="#">INFOSYS 2020</a>
+                <a class="dropdown-item" value="KO_2020" href="#">COCOCOLA 2020</a>
+                <a class="dropdown-item" value="NVDA_2020" href="#">NVIDIA 2020</a>
+                <a class="dropdown-item" value="RELIANCE.NS_2020-2016" href="#">RELIANCE 2020-2016</a>
+                <a class="dropdown-item" value="TSLA_2020" href="#">TESLA 2020</a>
+                <a class="dropdown-item" value="TTM_2020" href="#">TATA MOTORS 2020</a>
+                <a class="dropdown-item" value="UL_2020" href="#">UNILEVER 2020</a>
+                <a class="dropdown-item" value="GSPC_2016" href="#">S&P 500 2016</a>
+                <a class="dropdown-item" value="GSPC_2018" href="#">S&P 500 2018</a>
 
               </div>
             </div>
