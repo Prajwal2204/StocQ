@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
-import { HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-backtest',

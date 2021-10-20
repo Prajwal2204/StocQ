@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  HOST_LINK_ADDRESS : "https://lbs-pubs-robinson-lightweight.trycloudflare.com/",
-  // HOST_LINK_ADDRESS : "http://localhost:8000/",
+  //HOST_LINK_ADDRESS : "https://chances-evolution-logitech-hats.trycloudflare.com/",
+  HOST_LINK_ADDRESS : "http://localhost:8000/",
 };
 
 /*
