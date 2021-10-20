@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
 import { Router } from '@angular/router';
-import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
+import { environment } from '../../environments/environment';
+import { HttpClient, HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'app-backtest',
@@ -16,97 +16,54 @@ export class BacktestComponent implements OnInit {
   public alert:string = ""
 
 
+  constructor(private dash_service:DashboardService, private router:Router, private http:HttpClient) {
 
-  public lineChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [60, 5, 88, 31, 46, 15, 90], label: 'Series B' }
-  ];
-  public lineChartLabels: Label[] = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July'
-  ];
-  public lineChartOptions: ChartOptions= {
-    responsive: true,
-    scales: {
-      xAxes: [{
-        ticks: {
-          fontColor: "white",
-        }
-      }
+  }
 
-      ],
-      yAxes: [
+  startBacktest(data:{stock_name:string}):void{
+    if(data.stock_name == ""){
+      console.log("Please Select A Stock")
+    }
+    this.dash_service.startBacktest(data.stock_name)
+    
+  }
+
+  deposit(data:{amount:number}): void{
+    
+    if(data.amount > 0){
+      let deposit_url = environment.HOST_LINK_ADDRESS + "backtest/deposit?amount=" + data.amount 
+
+      const headers = { 'Content-Type': 'application/json',};
+      this.http.get(deposit_url, {headers: headers, responseType:'json', observe:'response', withCredentials:true}).subscribe(
         {
-          id: 'y-axis-0',
-          position: 'left',
-          ticks: {
-            fontColor: 'white',
-          }
-        },
-        {
-          id: 'y-axis-1',
-          position: 'right',
-          gridLines: {
-            color: 'rgba(0,0,0,0)',
+          next:data=>{
+            console.log(data)
           },
-          ticks: {
-            fontColor: 'white',
+          error:error=>{
+            console.log(error)
           }
         }
-      ]
+      )
     }
-  };
-  public lineChartColors: Color[] = [
-    {
-      borderColor: 'rgb(83, 221, 108)',
-      backgroundColor: 'rgba(0,0,0,0.3)'
-    }
-  ];
-  public lineChartLegend = true;
-  public lineChartType: ChartType= 'line';
-  public lineChartPlugins = [];
+  }
 
+  withdraw(data:{amount:number}): void{
+    
+    if(data.amount > 0){
+      let withdraw_url = environment.HOST_LINK_ADDRESS + "backtest/withdraw?amount=" + data.amount 
 
-  //pie chart starts here
-
-  public pieChartOptions: ChartOptions = {
-    responsive: true,
-    legend: {
-      position: 'bottom',
-    },
-    plugins: {
-      legend:{
-        labels:{
-          color:'white',
+      const headers = { 'Content-Type': 'application/json',};
+      this.http.get(withdraw_url, {headers: headers, responseType:'json', observe:'response', withCredentials:true}).subscribe(
+        {
+          next:data=>{
+            console.log(data)
+          },
+          error:error=>{
+            console.log(error)
+          }
         }
-      },
-      datalabels: {
-        formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label;
-        },
-      },
+      )
     }
-  };
-  public pieChartLabels: Label[] = [['Sells'], ['Buys']];
-  public pieChartData: number[] = [300, 500];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartColors = [
-    {
-      borderColor: 'rgb(0,0,0,0)',
-      backgroundColor: ['rgba(255,0,0,0.6)', 'rgba(0,255,0,0.6)'],
-      color:'white',
-    },
-  ];
-
-  constructor(private dash_service:DashboardService, private router:Router) {
-
   }
 
 
@@ -127,9 +84,6 @@ export class BacktestComponent implements OnInit {
       }
     })
   }
-
-  canvas: any;
-  ctx: any;
 
   ngAfterViewInit() {
   }

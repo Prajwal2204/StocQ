@@ -27,4 +27,11 @@ export class DashboardService {
     return this.http.get(url, { responseType:'json', observe:'response', withCredentials:true});
   }
 
+
+  startBacktest(stock_name:string):void{
+
+      let backtest_url = this.server_url + "backtest/start?stock_name=" + stock_name
+
+  }
+
 }
