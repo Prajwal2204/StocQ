@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +11,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public alert:string = ""
+  private readonly notifier: NotifierService;
   constructor(private auth:AuthService, 
               private router:Router,
-              ) { }
+              private notifierService:NotifierService
+              ) { 
+                this.notifier = notifierService;
+              }
 
   Login(data:{email:string, password:string}){
 
@@ -20,8 +25,8 @@ export class LoginComponent implements OnInit {
       next:res =>{
         if(res.status == 200){ 
           console.log("Login Success!")
-          
-          this.router.navigate(['/dashboard']);
+          this.notifier.notify('success', "Login Successful")
+          this.router.navigate(['/backtest']);
         }
         else{
           alert(res.body)
@@ -32,9 +37,11 @@ export class LoginComponent implements OnInit {
         console.log(error);
         if(error.status == 403){
           this.alert = error.error.detail;
+          this.notifier.notify('error', error.error.detail)
         }
         else{
           console.log(error)
+          this.notifier.notify('error', "ERROR")
           alert("There was a problem, Please Try Again!")
         }
       }
@@ -53,8 +60,8 @@ export class LoginComponent implements OnInit {
       next: res =>{
         if(res.status == 200){
           console.log("Login Success!")
-          
-          this.router.navigate(['/dashboard']);
+          this.notifier.notify('success', "Registered Successfully")
+          this.router.navigate(['/backtest']);
           
         }
         else{
@@ -65,10 +72,12 @@ export class LoginComponent implements OnInit {
       error: error=>{
         console.log(error)
         if(error.status == 403){
+          this.notifier.notify('error', error.error.detail)
           this.alert = error.error.detail;
         }
         else{
           console.log(error)
+          this.notifier.notify('error', "ERROR")
           alert("There was a problem, Please Try Again!")
         }
       }

@@ -52,6 +52,7 @@ export class BacktestComponent implements OnInit {
       {
         next:res=>{
           this.notifier.notify('success', "$" + data.amount + " Deposit Successful")
+          this.balance = (res.body as any).balance
           console.log(res)
         },
         error:error=>{
@@ -71,6 +72,7 @@ export class BacktestComponent implements OnInit {
       {
         next:res=>{
           this.notifier.notify('success', "$" + data.amount + " Withdrawal Successful")
+          this.balance = (res.body as any).balance
           console.log(res)
         },
         error:error=>{
@@ -92,9 +94,10 @@ export class BacktestComponent implements OnInit {
       },
       error:error=>{
         console.log(error)
-        if(error.status == 403){
+        if(error.status){
 
           console.log("User not authenticated")
+          this.notifier.notify('error', 'Please Login/Register!')
           this.router.navigate(['/login'])
         }
       }
