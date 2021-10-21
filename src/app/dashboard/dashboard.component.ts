@@ -60,15 +60,6 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
-  public lineChartLabels: Label[] = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July'
-  ];
 
   public lineChartLabels_Return: Label[] = [];
   public lineChartLabels_Portfolio: Label[] = [];
@@ -95,16 +86,6 @@ export class DashboardComponent implements OnInit {
             fontColor: 'white',
           }
         },
-        {
-          id: 'y-axis-1',
-          position: 'right',
-          gridLines: {
-            color: 'rgba(0,0,0,0)',
-          },
-          ticks: {
-            fontColor: 'white',
-          }
-        }
       ]
     }
   };
@@ -149,7 +130,7 @@ export class DashboardComponent implements OnInit {
         }
       }
     })
-    this.initializeChartOptions();
+    
   }
 
   getOHLC(stock_name:string):void{
@@ -179,6 +160,13 @@ export class DashboardComponent implements OnInit {
           this.lineChartLabels_Portfolio = this.OHLC.map(d=>{
             return d[0]
           })
+
+          // candle = {
+          //   x : Date,
+          //   y : [o, h, l ,c]
+          // }
+
+          this.initializeChartOptions();
 
         },
         error:error=>{
