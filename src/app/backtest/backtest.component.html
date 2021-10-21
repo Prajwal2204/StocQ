@@ -1,6 +1,7 @@
 <div class="main">
   <app-navbar></app-navbar>
 
+  <notifier-container></notifier-container>
   <div class="nav-container second-nav">
     <div class="top-box alert alert-danger" *ngIf="alert != ''">
       {{alert}}
@@ -137,8 +138,8 @@
                   <option class="dropdown-item" value="TSLA_2020">TESLA 2020</option>
                   <option class="dropdown-item" value="TTM_2020">TATA MOTORS 2020</option>
                   <option class="dropdown-item" value="UL_2020">UNILEVER 2020</option>
-                  <option class="dropdown-item" value="GSPC_2016">S&P 500 2016</option>
-                  <option class="dropdown-item" value="GSPC_2018">S&P 500 2018</option>
+                  <option class="dropdown-item" value="^GSPC_2016">S&P 500 2016</option>
+                  <option class="dropdown-item" value="^GSPC_2018">S&P 500 2018</option>
                 </select>
                 <button class="btn btn-primary dash-btn" style="margin-top: 35px; border: none;">START
                 </button>

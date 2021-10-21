@@ -3,8 +3,6 @@ import { DashboardService } from '../dashboard.service';
 import { Router } from '@angular/router';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
-import { createChart } from 'lightweight-charts';
-import { Chart } from 'node_modules/chart.js';
 import * as apex from 'ng-apexcharts';
 
 

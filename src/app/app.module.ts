@@ -7,7 +7,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieModule } from 'ngx-cookie';
 import { ChartsModule } from 'ng2-charts';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
 
+
+const customNotifierOptions: NotifierOptions = {
+  position: {
+		horizontal: {
+			position: 'right',
+			distance: 12
+		},
+		vertical: {
+			position: 'top',
+			distance: 12,
+			gap: 10
+		}
+  }
+}
 
 @NgModule({
   declarations: [
@@ -22,7 +37,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     AppRoutingModule,
     CookieModule.forRoot(),
     ChartsModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    NotifierModule.withConfig(customNotifierOptions),
   ],
   providers: [],
   bootstrap: [AppComponent]

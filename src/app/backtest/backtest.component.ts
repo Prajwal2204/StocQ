@@ -3,6 +3,7 @@ import { DashboardService } from '../dashboard.service';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { HttpClient} from '@angular/common/http';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-backtest',
@@ -16,9 +17,12 @@ export class BacktestComponent implements OnInit {
   public balance:number = 0
   public alert:string = ""
 
+  private readonly notifier: NotifierService;
 
-  constructor(private dash_service:DashboardService, private router:Router, private http:HttpClient) {
+  constructor(private dash_service:DashboardService, private router:Router,
+  private http:HttpClient, notifierService:NotifierService) {
 
+    this.notifier = notifierService
   }
 
   startBacktest(data:{stock_name:string}):void{
@@ -31,40 +35,40 @@ export class BacktestComponent implements OnInit {
 
   deposit(data:{amount:number}): void{
     
-    if(data.amount > 0){
-      let deposit_url = environment.HOST_LINK_ADDRESS + "backtest/deposit?amount=" + data.amount 
+    let deposit_url = environment.HOST_LINK_ADDRESS + "backtest/deposit?amount=" + data.amount 
 
-      const headers = { 'Content-Type': 'application/json',};
-      this.http.get(deposit_url, {headers: headers, responseType:'json', observe:'response', withCredentials:true}).subscribe(
-        {
-          next:data=>{
-            console.log(data)
-          },
-          error:error=>{
-            console.log(error)
-          }
+    const headers = { 'Content-Type': 'application/json',};
+    this.http.get(deposit_url, {headers: headers, responseType:'json', observe:'response', withCredentials:true}).subscribe(
+      {
+        next:res=>{
+          this.notifier.notify('success', "$" + data.amount + " Deposit Successful")
+          console.log(res)
+        },
+        error:error=>{
+          this.notifier.notify('error', "ERROR - " + error.error)
+          console.log(error.error)
         }
-      )
-    }
+      }
+    )
   }
 
   withdraw(data:{amount:number}): void{
     
-    if(data.amount > 0){
-      let withdraw_url = environment.HOST_LINK_ADDRESS + "backtest/withdraw?amount=" + data.amount 
+    let withdraw_url = environment.HOST_LINK_ADDRESS + "backtest/withdraw?amount=" + data.amount 
 
-      const headers = { 'Content-Type': 'application/json',};
-      this.http.get(withdraw_url, {headers: headers, responseType:'json', observe:'response', withCredentials:true}).subscribe(
-        {
-          next:data=>{
-            console.log(data)
-          },
-          error:error=>{
-            console.log(error)
-          }
+    const headers = { 'Content-Type': 'application/json',};
+    this.http.get(withdraw_url, {headers: headers, responseType:'json', observe:'response', withCredentials:true}).subscribe(
+      {
+        next:res=>{
+          this.notifier.notify('success', "$" + data.amount + " Withdrawal Successful")
+          console.log(res)
+        },
+        error:error=>{
+          this.notifier.notify('error', "ERROR - " + error.error.message)
+          console.log(error)
         }
-      )
-    }
+      }
+    )
   }
 
 
