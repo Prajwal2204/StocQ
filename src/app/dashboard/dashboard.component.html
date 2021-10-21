@@ -53,8 +53,8 @@
       <div class="col-md-6">
         <div class="card right-card top-right">
           <div class="card-body">
-            <h3 class="card-title" style="margin-top: 5px;">NEW BACKTEST</h3>
-            <div class="dropdown show" style="margin-top: 25px;">
+            <h3 class="card-title" style="margin-top: 5px;">BACKTEST STATISTICS</h3>
+            <!-- <div class="dropdown show" style="margin-top: 25px;">
               <form #backtestForm="ngForm" (ngSubmit)="startBacktest(backtestForm.value)">
                 <h3 for="stocks">Pick a Stock</h3>
                 <select ngModel #stock_name="ngModel" name="stock_name" id="stocks" class="form-control custom-form-control" style="margin-left: 25% ">
@@ -77,7 +77,13 @@
                 <button class="btn btn-primary dash-btn" style="margin-top: 35px; border: none;">START
                 </button>
               </form>
-            </div>
+            </div> -->
+            <h4 class="stat-font">Initial Balance: ${{init_bal}}</h4>
+            <h4 class="stat-font">Final Balance: ${{final_bal}}</h4>
+            <h4 class="stat-font">No. of stocks bought: {{no_of_buys}}</h4>
+            <h4 class="stat-font">No. of stocks sold: {{no_of_sales}}</h4>
+            <h4 class="stat-font">Profit Made: ${{profit_made}}</h4>
+            <h4 class="stat-font">Profit Percentage: {{profit_per}}%</h4>
           </div>
         </div>
       </div>
