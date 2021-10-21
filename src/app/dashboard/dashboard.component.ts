@@ -14,6 +14,13 @@ import { HttpClient} from '@angular/common/http';
 })
 export class DashboardComponent implements OnInit {
 
+  init_bal = this.dash_service.initial_balance;
+  final_bal = this.dash_service.final_balance;
+  no_of_buys = this.dash_service.buy_dates.length;
+  no_of_sales = this.dash_service.sell_dates.length;
+  profit_made = this.final_bal - this.init_bal;
+  profit_per = (this.profit_made/this.init_bal) * 100;
+
 
   startBacktest(data:{stock_name:string}):void{
     if(data.stock_name == ""){
