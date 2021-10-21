@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
 import { Router } from '@angular/router';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
+import { Color, Label, MultiDataSet } from 'ng2-charts';
 import * as apex from 'ng-apexcharts';
 import { environment } from 'src/environments/environment';
 import { HttpClient} from '@angular/common/http';
@@ -67,6 +67,14 @@ export class DashboardComponent implements OnInit {
     }
   ];
 
+  public doughnutChartLabels: Label[] = ['Buy Days', 'Sell Days'];
+  public doughnutChartData: MultiDataSet = [[40,60]];
+  public doughnutChartType: ChartType = 'doughnut';
+  public doughnutChartColors: Color[] = [
+    { backgroundColor: ['#34eb3a', '#f56042'] },
+    { borderColor: ["#000000", "#000000"] }
+  
+  ];
 
   public lineChartLabels_Return: Label[] = [];
   public lineChartLabels_Portfolio: Label[] = [];
