@@ -16,6 +16,8 @@ export class BacktestComponent implements OnInit {
   public username:any = "USER"
   public balance:number = 0
   public alert:string = ""
+  isDisplay = true;
+  isDisplay_With = true;
 
   private readonly notifier: NotifierService;
 
@@ -23,6 +25,14 @@ export class BacktestComponent implements OnInit {
   private http:HttpClient, notifierService:NotifierService) {
 
     this.notifier = notifierService
+  }
+
+  toggleDeposit(){
+    this.isDisplay = !this.isDisplay;
+  }
+
+  toggleWithdraw(){
+    this.isDisplay_With = !this.isDisplay_With;
   }
 
   startBacktest(data:{stock_name:string}):void{
