@@ -33,6 +33,43 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
+        <div class="card right-card top-right">
+          <div class="card-body">
+            <h3 class="card-title" style="margin-top: 5px;">BACKTEST STATISTICS</h3>
+
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>Initial Balance</td>
+                  <td>${{init_bal}}</td>
+                </tr>
+                <tr>
+                  <td>Final Balance</td>
+                  <td>${{final_bal}}</td>
+                </tr>
+                <tr>
+                  <td>No. of buy days</td>
+                  <td>{{no_of_buys}}</td>
+                </tr>
+                <tr>
+                  <td>No. of sell days</td>
+                  <td>{{no_of_sales}}</td>
+                </tr>
+                <tr>
+                  <td>Profit Made</td>
+                  <td>${{profit_made}}</td>
+                </tr>
+                <tr>
+                  <td>Profit Percentage</td>
+                  <td>{{profit_per}}%</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
         <div class="row">
           <div class="col-md-12">
             <div class="card custom-height">
@@ -46,20 +83,6 @@
                 </h3>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="card right-card top-right">
-          <div class="card-body">
-            <h3 class="card-title" style="margin-top: 5px;">BACKTEST STATISTICS</h3>
-            <h4 class="stat-font">Initial Balance: ${{init_bal}}</h4>
-            <h4 class="stat-font">Final Balance: ${{final_bal}}</h4>
-            <h4 class="stat-font">No. of stocks bought: {{no_of_buys}}</h4>
-            <h4 class="stat-font">No. of stocks sold: {{no_of_sales}}</h4>
-            <h4 class="stat-font">Profit Made: ${{profit_made}}</h4>
-            <h4 class="stat-font">Profit Percentage: {{profit_per}}%</h4>
           </div>
         </div>
       </div>

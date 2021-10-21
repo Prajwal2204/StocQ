@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   no_of_buys = this.dash_service.buy_dates.length;
   no_of_sales = this.dash_service.sell_dates.length;
   profit_made = this.final_bal - this.init_bal;
-  profit_per = (this.profit_made/this.init_bal) * 100;
+  profit_per = this.roundTo((this.profit_made/this.init_bal) * 100, 2);
 
 
   startBacktest(data:{stock_name:string}):void{
@@ -129,7 +129,7 @@ export class DashboardComponent implements OnInit {
         if(error.status){
 
           console.log("User not authenticated")
-          this.router.navigate(['/login'])
+          // this.router.navigate(['/login'])
         }
       }
     })
@@ -207,9 +207,16 @@ export class DashboardComponent implements OnInit {
     
   }
 
+  roundTo(num: number, places: number) {
+    const factor = 10 ** places;
+    return Math.round(num * factor) / factor;
+  };
+
   canvas: any;
   ctx: any;
 
   ngAfterViewInit() {
   }
 }
+
+
