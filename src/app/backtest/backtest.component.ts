@@ -74,7 +74,7 @@ export class BacktestComponent implements OnInit {
           console.log(res)
         },
         error:error=>{
-          this.notifier.notify('error', "ERROR - " + error.error.message)
+          this.notifier.notify('error', "ERROR - " + error.error)
           console.log(error)
         }
       }

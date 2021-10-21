@@ -134,7 +134,7 @@
               Return Rates
             </h3>
             <div style="width:100%;">
-              <canvas baseChart [datasets]="lineChartData_Return" [labels]="lineChartLabels" [options]="lineChartOptions"
+              <canvas baseChart [datasets]="lineChartData_Return" [labels]="lineChartLabels_Return" [options]="lineChartOptions"
                 [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
                 [plugins]="lineChartPlugins">
               </canvas>
@@ -153,7 +153,7 @@
               Portfolio Value
             </h3>
             <div style="width:100%;">
-              <canvas baseChart [datasets]="lineChartData_Portfolio" [labels]="lineChartLabels" [options]="lineChartOptions"
+              <canvas baseChart [datasets]="lineChartData_Portfolio" [labels]="lineChartLabels_Portfolio" [options]="lineChartOptions"
                 [colors]="lineChartColors_Portfolio" [legend]="lineChartLegend" [chartType]="lineChartType"
                 [plugins]="lineChartPlugins">
               </canvas>
@@ -223,8 +223,8 @@
           Inventory Price
         </h3>
         <div style="width:100%;">
-          <canvas baseChart [datasets]="lineChartData_Inventory" [labels]="lineChartLabels" [options]="lineChartOptions"
-            [colors]="lineChartColors_Inventory" [legend]="lineChartLegend" [chartType]="lineChartType"
+          <canvas baseChart [datasets]="lineChartData_Profits" [labels]="lineChartLabels_Profits" [options]="lineChartOptions"
+            [colors]="lineChartColors_Profits" [legend]="lineChartLegend" [chartType]="lineChartType"
             [plugins]="lineChartPlugins">
           </canvas>
 

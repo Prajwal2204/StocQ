@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import * as apex from 'ng-apexcharts';
-
+import { environment } from 'src/environments/environment';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,15 +17,20 @@ export class DashboardComponent implements OnInit {
   // Line chart
   public username:any = "USER"
   public alert:string = ""
+  public OHLC:any[] = [];
+
+  public return_rates:any[] = [];
+  public portfolio:any[] = [];
+  public profits:any[] = [];
 
   // Return Rates Chart
   public lineChartData_Return: ChartDataSets[] = [
-    { data: [65, 45, 44, 23, 78, 89, 75], label: 'Return Rates per Month'}
+    { data: this.return_rates, label: 'Return Rates'}
   ];
 
   // Portfolio Value Chart
   public lineChartData_Portfolio: ChartDataSets[] = [
-    { data: [45, 52, 64, 61, 52, 57, 71], label: 'Portfolio Value per Month'}
+    { data: this.dash_service.portfolio_values, label: 'Portfolio Value'}
   ];
 
   public lineChartColors_Portfolio: Color[] = [
@@ -35,21 +41,17 @@ export class DashboardComponent implements OnInit {
   ];
 
   // Inventory Prices Chart
-  public lineChartData_Inventory: ChartDataSets[] = [
-    { data: [60, 5, 88, 31, 46, 15, 90], label: 'Inventory Price Every Month' }
+  public lineChartData_Profits: ChartDataSets[] = [
+    { data: this.profits, label: 'Profits Per Trade' }
   ];
 
-  public lineChartColors_Inventory: Color[] = [
+  public lineChartColors_Profits: Color[] = [
     {
       borderColor: 'rgb(3, 240, 252)',
       backgroundColor: 'rgba(0,0,0,0.3)'
     }
   ];
 
-  // public lineChartData: ChartDataSets[] = [
-  //   { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-  //   { data: [60, 5, 88, 31, 46, 15, 90], label: 'Series B' }
-  // ];
   public lineChartLabels: Label[] = [
     'January',
     'February',
@@ -59,6 +61,11 @@ export class DashboardComponent implements OnInit {
     'June',
     'July'
   ];
+
+  public lineChartLabels_Return: Label[] = [];
+  public lineChartLabels_Portfolio: Label[] = [];
+  public lineChartLabels_Profits: Label[] = [];
+
   public lineChartOptions: ChartOptions= {
     responsive: true,
     scales: {
@@ -100,7 +107,7 @@ export class DashboardComponent implements OnInit {
   public lineChartType: ChartType= 'line';
   public lineChartPlugins = [];
 
-  constructor(private dash_service:DashboardService, private router:Router) {
+  constructor(private dash_service:DashboardService, private router:Router, private http:HttpClient) {
 
   }
 
@@ -111,6 +118,11 @@ export class DashboardComponent implements OnInit {
   xaxis!: apex.ApexXAxis;
 
   ngOnInit(): void {
+
+
+    this.getOHLC(this.dash_service.stock_name)
+
+    
 
     this.dash_service.dashboard_init().subscribe({
       next:data=>{
@@ -127,6 +139,44 @@ export class DashboardComponent implements OnInit {
       }
     })
     this.initializeChartOptions();
+  }
+
+  getOHLC(stock_name:string):void{
+    let deposit_url = environment.HOST_LINK_ADDRESS + "backtest/ohlc?stock_name=" + stock_name
+
+    const headers = { 'Content-Type': 'application/json',};
+    this.http.get(deposit_url, {headers: headers, responseType:'json', observe:'response', withCredentials:true}).subscribe(
+      {
+        next:res=>{
+          this.OHLC = (res.body as any).data
+          console.log(res)
+
+          for(var i=0;i<this.dash_service.return_rates.length;i++){
+            if(this.dash_service.return_rates[i] != 0){
+              this.return_rates.push(this.dash_service.return_rates[i])
+              this.lineChartLabels_Return.push(this.OHLC[i][0])
+            }
+          }
+
+          for(var i=0;i<this.dash_service.profits.length;i++){
+            if(this.dash_service.profits[i] != 0){
+              this.profits.push(this.dash_service.profits[i])
+              this.lineChartLabels_Profits.push(this.OHLC[i][0])
+            }
+          }
+
+          this.lineChartLabels_Portfolio = this.OHLC.map(d=>{
+            return d[0]
+          })
+
+        },
+        error:error=>{
+          console.log(error.error)
+        }
+      }
+    )
+
+    
   }
 
 

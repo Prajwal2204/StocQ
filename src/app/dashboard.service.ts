@@ -11,6 +11,8 @@ export class DashboardService {
 
   private server_url: string = environment.HOST_LINK_ADDRESS;
   readonly dashboard_base: string = 'backtest/balance/';
+  public stock_name:string = "";
+
   public buy_dates:any[] = [];
   public sell_dates:any[] = [];
   public inventory:any[] = [];
@@ -18,6 +20,7 @@ export class DashboardService {
   public return_rates:any[] = [];
   public initial_balance:any = 0
   public final_balance:any = 0
+  public profits:any[] = []
 
   private readonly notifier: NotifierService;
 
@@ -52,6 +55,9 @@ export class DashboardService {
             this.inventory = (data.body as any).inventory;
             this.return_rates = (data.body as any).return_rates;
             this.portfolio_values = (data.body as any).portfolio_values;
+            this.profits = (data.body as any).profits;
+
+            this.stock_name = stock_name
 
             this.router.navigate(['/dashboard'])
           }
