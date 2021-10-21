@@ -230,3 +230,17 @@ svg {
   width:50%;
   left: 50%;
 }
+
+.load{
+  display:block;
+}
+.hide{
+  display:none;
+}
+
+.loading-main{
+  padding-top:15%;
+  height:100vh;
+  background-color: #013C53;
+
+}

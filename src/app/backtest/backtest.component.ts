@@ -16,8 +16,8 @@ export class BacktestComponent implements OnInit {
   public username:any = "USER"
   public balance:number = 0
   public alert:string = ""
-  isDisplay = true;
-  isDisplay_With = true;
+  public isLoading:boolean = false;
+  public amount:number = 0;
 
   private readonly notifier: NotifierService;
 
@@ -25,14 +25,6 @@ export class BacktestComponent implements OnInit {
   private http:HttpClient, notifierService:NotifierService) {
 
     this.notifier = notifierService
-  }
-
-  toggleDeposit(){
-    this.isDisplay = !this.isDisplay;
-  }
-
-  toggleWithdraw(){
-    this.isDisplay_With = !this.isDisplay_With;
   }
 
   startBacktest(data:{stock_name:string}):void{
@@ -43,15 +35,15 @@ export class BacktestComponent implements OnInit {
     
   }
 
-  deposit(data:{amount:number}): void{
+  deposit(): void{
     
-    let deposit_url = environment.HOST_LINK_ADDRESS + "backtest/deposit?amount=" + data.amount 
+    let deposit_url = environment.HOST_LINK_ADDRESS + "backtest/deposit?amount=" + this.amount 
 
     const headers = { 'Content-Type': 'application/json',};
     this.http.get(deposit_url, {headers: headers, responseType:'json', observe:'response', withCredentials:true}).subscribe(
       {
         next:res=>{
-          this.notifier.notify('success', "$" + data.amount + " Deposit Successful")
+          this.notifier.notify('success', "$" + this.amount + " Deposit Successful")
           this.balance = (res.body as any).balance
           console.log(res)
         },
@@ -63,15 +55,15 @@ export class BacktestComponent implements OnInit {
     )
   }
 
-  withdraw(data:{amount:number}): void{
+  withdraw(): void{
     
-    let withdraw_url = environment.HOST_LINK_ADDRESS + "backtest/withdraw?amount=" + data.amount 
+    let withdraw_url = environment.HOST_LINK_ADDRESS + "backtest/withdraw?amount=" + this.amount 
 
     const headers = { 'Content-Type': 'application/json',};
     this.http.get(withdraw_url, {headers: headers, responseType:'json', observe:'response', withCredentials:true}).subscribe(
       {
         next:res=>{
-          this.notifier.notify('success', "$" + data.amount + " Withdrawal Successful")
+          this.notifier.notify('success', "$" + this.amount + " Withdrawal Successful")
           this.balance = (res.body as any).balance
           console.log(res)
         },
@@ -85,6 +77,11 @@ export class BacktestComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    this.dash_service.getloading().subscribe(load => {
+      console.log(load)
+      this.isLoading = load;
+    })
 
     this.dash_service.dashboard_init().subscribe({
       next:data=>{

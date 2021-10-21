@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class DashboardService {
   private server_url: string = environment.HOST_LINK_ADDRESS;
   readonly dashboard_base: string = 'backtest/balance/';
   public stock_name:string = "";
+
+  public loading:any = new BehaviorSubject<boolean>(false);
 
   public buy_dates:any[] = [];
   public sell_dates:any[] = [];
@@ -29,6 +32,13 @@ export class DashboardService {
     this.notifier = notifier;
   }
 
+  getloading(): Observable<boolean> {
+    return this.loading.asObservable();
+  }
+  setLoading(answer: boolean) {
+    this.loading.next(answer);
+  }
+
   dashboard_init(){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -43,6 +53,8 @@ export class DashboardService {
       let backtest_url = this.server_url + "backtest/start?stock_name=" + stock_name
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
+
+      this.setLoading(true);
 
       this.http.get(backtest_url, {responseType:'json', observe:'response', withCredentials:true}).subscribe({
         next:data=>{
@@ -60,11 +72,13 @@ export class DashboardService {
             this.stock_name = stock_name
 
             this.router.navigate(['/dashboard'])
+            this.setLoading(false);
           }
         },
         error:error=>{
           this.notifier.notify('error', error.error.message)
           console.log(error.error)
+          this.setLoading(false);
         }
       })
 

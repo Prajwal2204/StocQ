@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" [class.hide]="isLoading" [class.load]="!isLoading">
   <app-navbar></app-navbar>
 
   <div class="nav-container second-nav">
@@ -32,64 +32,25 @@
             <div class="col-md-12" style="width:100%; height: 35px;">
             </div>
           </div>
-          <div class="d-flex" style="padding: 0px 92px;">
+          <div class="d-flex flex-column" style="padding: 0px 92px;">
+
+            <div class="row mx-auto">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-12">
+                    <input ngModel type="text" class="form-control" [(ngModel)]="amount" placeholder="Enter Amount">
+                  </div>
+                </div>
+              </div>
+            </div>
             
             <div class="row">
               <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#"
-                (click)="toggleDeposit()">DEPOSIT</a></div>
+                (click)="deposit()">DEPOSIT</a></div>
             <div class="btn btn-primary dash-btn" style="border: none;"><a routerLink="#" 
-                (click)="toggleWithdraw()">WITHDRAW</a></div>
+                (click)="withdraw()">WITHDRAW</a></div>
             </div>
             
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-12">
-                <div [hidden]="isDisplay">
-                  <form #depositForm="ngForm" (ngSubmit)="deposit(depositForm.value)">
-                    <div class="form-group">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <label class="depositModalLabel">Enter the amount you wish to deposit</label>
-                          <input ngModel type="text" #amount="ngModel" name="amount" placeholder="Enter Amount">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <button type="submit" class="btn btn-primary custom-dash-btn">Deposit</button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <!-- withdraw -->
-            <div class="row">
-              <div class="col-md-12">
-                <div [hidden]="isDisplay_With">
-                  <form #withdrawForm="ngForm" (ngSubmit)="withdraw(withdrawForm.value)">
-                    <div class="form-group">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <label class="depositModalLabel">Enter the amount you wish to withdraw</label>
-                          <input ngModel type="text" #amount="ngModel" name="amount" placeholder="Enter Amount">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <button type="submit" class="btn btn-primary custom-dash-btn">Withdraw</button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
           </div>
           
         </div>
@@ -133,7 +94,7 @@
 
 
 <!-- Footer -->
-<div class="custom-container">
+<div class="custom-container" [class.hide]="isLoading" [class.load]="!isLoading">
   <div class="container ">
     <footer class="page-footer font-small blue pt-4 ">
 
@@ -206,6 +167,36 @@
       <!-- Copyright -->
 
     </footer>
+  </div>
+</div>
+
+<div class="loading-main"[class.hide]="!isLoading" [class.load]="isLoading">
+  <div class="d-flex justify-content-center flex-column align-items-center">
+    <div class="loader loader--style5">
+      <svg class="d-flex justify-content-center" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="250px" height="170px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+        <rect x="0" y="0" width="4" height="10" fill="#DD5353">
+          <animateTransform attributeType="xml"
+            attributeName="transform" type="translate"
+            values="0 0; 0 20; 0 0"
+            begin="0" dur="1s" repeatCount="indefinite" />
+        </rect>
+        <rect x="10" y="0" width="4" height="10" fill="#DD5353">
+          <animateTransform attributeType="xml"
+            attributeName="transform" type="translate"
+            values="0 0; 0 20; 0 0"
+            begin="0.2s" dur="1s" repeatCount="indefinite" />
+        </rect>
+        <rect x="20" y="0" width="4" height="10" fill="#DD5353">
+          <animateTransform attributeType="xml"
+            attributeName="transform" type="translate"
+            values="0 0; 0 20; 0 0"
+            begin="0.4s" dur="1s" repeatCount="indefinite" />
+        </rect>
+      </svg>
+    </div>
+      <h3 class="text-white text-center mt-5" style="color:white">PLEASE WAIT..</h3>
+      <p class="text-center mt-2" style="color:white;font-size:14px;">Running Backtest Simulation on Stock Prices</p>
   </div>
 </div>
 <!-- Footer -->

@@ -14,13 +14,13 @@ import { HttpClient} from '@angular/common/http';
 })
 export class DashboardComponent implements OnInit {
 
-  stock = this.dash_service.stock_name;
-  init_bal = this.dash_service.initial_balance;
-  final_bal = this.dash_service.final_balance;
-  no_of_buys = this.dash_service.buy_dates.length;
-  no_of_sales = this.dash_service.sell_dates.length;
-  profit_made = this.final_bal - this.init_bal;
-  profit_per = this.roundTo((this.profit_made/this.init_bal) * 100, 2);
+  stock = this.dash_service.stock_name
+  init_bal = this.dash_service.initial_balance
+  final_bal = this.dash_service.portfolio_values[this.dash_service.portfolio_values.length-1].toFixed(2)
+  no_of_buys:any = this.dash_service.buy_dates.length
+  no_of_sales:any = this.dash_service.sell_dates.length
+  profit_made:any = (this.final_bal - this.init_bal).toFixed(2)
+  profit_per:any = ((this.profit_made / this.init_bal) * 100).toFixed(2);
 
 
   startBacktest(data:{stock_name:string}):void{
@@ -69,11 +69,12 @@ export class DashboardComponent implements OnInit {
   ];
 
   public doughnutChartLabels: Label[] = ['Buy Days', 'Sell Days'];
-  public doughnutChartData: MultiDataSet = [[40,60]];
+  public doughnutChartData: MultiDataSet = [this.no_of_buys, this.no_of_sales];
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartColors: Color[] = [
-    { backgroundColor: ['#34eb3a', '#f56042'] },
-    { borderColor: ["#000000", "#000000"] }
+    { backgroundColor: ['#34eb3a', '#f56042'],
+    borderColor: 'rgb(0,0,0,0)' },
+    
   
   ];
 
@@ -216,10 +217,6 @@ export class DashboardComponent implements OnInit {
     
   }
 
-  roundTo(num: number, places: number) {
-    const factor = 10 ** places;
-    return Math.round(num * factor) / factor;
-  };
 
   canvas: any;
   ctx: any;
