@@ -14,6 +14,7 @@ import { HttpClient} from '@angular/common/http';
 })
 export class DashboardComponent implements OnInit {
 
+  stock = this.dash_service.stock_name;
   init_bal = this.dash_service.initial_balance;
   final_bal = this.dash_service.final_balance;
   no_of_buys = this.dash_service.buy_dates.length;
