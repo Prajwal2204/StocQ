@@ -14,6 +14,14 @@ import { HttpClient} from '@angular/common/http';
 })
 export class DashboardComponent implements OnInit {
 
+
+  startBacktest(data:{stock_name:string}):void{
+    if(data.stock_name == ""){
+      console.log("Please Select A Stock")
+    }
+    this.dash_service.startBacktest(data.stock_name)
+    
+  }
   // Line chart
   public username:any = "USER"
   public alert:string = ""
@@ -80,6 +88,9 @@ export class DashboardComponent implements OnInit {
         {
           id: 'y-axis-0',
           position: 'left',
+          gridLines: {
+            display: false
+          },
           ticks: {
             fontColor: 'white',
           }
