@@ -37,7 +37,7 @@
           <div class="card-body">
             <h3 class="card-title mb-4" style="margin-top: 5px;">BACKTEST STATISTICS</h3>
 
-            <table class="table">
+            <table class="table table-borderless text-left mt-3">
               <tbody>
                 <tr>
                   <td><b>Stock Name</b></td>
@@ -61,11 +61,11 @@
                 </tr>
                 <tr>
                   <td>Profit Made</td>
-                  <td>${{profit_made}}</td>
+                  <td [class.profit]="profit" [class.loss]="!profit">${{profit_made}}</td>
                 </tr>
                 <tr>
                   <td>Profit Percentage</td>
-                  <td>{{profit_per}}%</td>
+                  <td [class.profit]="profit" [class.loss]="!profit">{{profit_per}}%</td>
                 </tr>
                 
               </tbody>
@@ -77,9 +77,9 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <h3 class="card-title mb-4" style="margin-top: 5px;">Buys/Sells</h3>
+              
               <div class="card-body">
-                <h3 class="second-nav-text text-center">Buy days vs Sell days</h3>
+                <h3 class="mb-4 text-center" style="margin-top: 5px;">Buys/Sells</h3>
                 <canvas baseChart 
                   [data]="doughnutChartData"
                   [labels]="doughnutChartLabels"

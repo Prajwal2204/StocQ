@@ -232,3 +232,13 @@ svg {
   line-height: 20px;
   color: #FBFBFF;
 }
+
+.profit{
+  color:lightgreen;
+}
+.loss{
+  color:rgb(238, 42, 42);
+}
+tr{
+  padding: 5px 0px;
+}

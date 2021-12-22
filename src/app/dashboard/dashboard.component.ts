@@ -22,6 +22,8 @@ export class DashboardComponent implements OnInit {
   profit_made:any = (this.final_bal - this.init_bal).toFixed(2)
   profit_per:any = ((this.profit_made / this.init_bal) * 100).toFixed(2);
 
+  public profit:boolean = true
+
 
   startBacktest(data:{stock_name:string}):void{
     if(data.stock_name == ""){
@@ -139,7 +141,7 @@ export class DashboardComponent implements OnInit {
         if(error.status){
 
           console.log("User not authenticated")
-          // this.router.navigate(['/login'])
+          this.router.navigate(['/login'])
         }
       }
     })
@@ -183,9 +185,13 @@ export class DashboardComponent implements OnInit {
             return candle
           })
 
-          console.log(data)
-
           this.initializeChartOptions(data);
+          if(this.profit_made >= 0){
+            this.profit = true
+          }
+          else{
+            this.profit = false
+          }
 
         },
         error:error=>{
